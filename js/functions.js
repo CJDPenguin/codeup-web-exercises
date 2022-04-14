@@ -1,3 +1,6 @@
+// define a function and immediately invoke (i.e. call) it
+(function () {
+    let iffeVar = "I'm local to the IIFE.";
 "use strict";
 
 /**
@@ -8,10 +11,10 @@
  * Example
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
-const Hello = (function sayHello(name) {
+function sayHello(name) {
     return "Hello " + name
-})
-console.log(Hello("Codeup"))
+}
+console.log(sayHello("Codeup"))
 /**
  * TODO:
  * Call the function 'sayHello' and pass your name as a string literal argument.
@@ -19,7 +22,7 @@ console.log(Hello("Codeup"))
  *
  * console.log 'helloMessage' to check your work
  */
-const helloMessage = Hello("Chris")
+let helloMessage = sayHello("Chris")
 console.log(helloMessage)
 /**
  * TODO:
@@ -27,8 +30,8 @@ console.log(helloMessage)
  * variable to the 'sayHello' function. You should see the same output in the
  * console.
  */
-const myName = "Chris"
-console.log(Hello(myName))
+let myName = "Chris"
+console.log(sayHello(myName))
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
 var random = Math.floor((Math.random() * 3) + 1);
@@ -50,9 +53,9 @@ var random = Math.floor((Math.random() * 3) + 1);
  * different result everytime you refresh the page if you are using the random
  * number)
  */
-const isTwo = (function isTwo(num){
+function isTwo(num){
     return num === 2
-})
+}
 console.log(isTwo(random))
 /**
  * TODO:
@@ -65,9 +68,9 @@ console.log(isTwo(random))
  * >calculateTip(0.25, 25.50) // returns 6.375
  * >calculateTip(0.15, 33.42) // returns 5.013
 */
-const calculateTip = (function calculateTip(perct, total) {
+function calculateTip(perct, total) {
     return total * perct
-})
+}
 /**
  * TODO:
  * Use prompt and alert in combination with your calculateTip function to
@@ -91,7 +94,8 @@ alert("Your tip would be $" + calculateTip(tipPerct, billTotal))
  *
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
-const applyDiscout = (function applyDiscount(originalPrice,discountPercent) {
+function applyDiscount(originalPrice,discountPercent) {
     return originalPrice - (originalPrice * discountPercent)
-})
+}
 console.log(applyDiscount(50,0.1))
+})();
