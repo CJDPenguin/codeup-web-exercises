@@ -1,6 +1,5 @@
 // define a function and immediately invoke (i.e. call) it
 (function () {
-    let iffeVar = "I'm local to the IIFE.";
 "use strict";
 
 /**
@@ -12,9 +11,9 @@
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
 function sayHello(name) {
-    return "Hello " + name
+    return "Hello " + name;
 }
-console.log(sayHello("Codeup"))
+console.log(sayHello("Codeup"));
 /**
  * TODO:
  * Call the function 'sayHello' and pass your name as a string literal argument.
@@ -22,16 +21,16 @@ console.log(sayHello("Codeup"))
  *
  * console.log 'helloMessage' to check your work
  */
-let helloMessage = sayHello("Chris")
-console.log(helloMessage)
+let helloMessage = sayHello("Chris");
+console.log(helloMessage);
 /**
  * TODO:
  * Store your name as a string in a variable named 'myName', and pass that
  * variable to the 'sayHello' function. You should see the same output in the
  * console.
  */
-let myName = "Chris"
-console.log(sayHello(myName))
+let myName = "Chris";
+console.log(sayHello(myName));
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
 var random = Math.floor((Math.random() * 3) + 1);
@@ -54,7 +53,7 @@ var random = Math.floor((Math.random() * 3) + 1);
  * number)
  */
 function isTwo(num){
-    return num === 2
+    return num === 2;
 }
 console.log(isTwo(random))
 /**
@@ -77,9 +76,7 @@ function calculateTip(perct, total) {
  * prompt the user for the bill total and a percentage they would like to tip,
  * then display the dollar amount they should tip
  */
-let tipPerct = parseFloat(prompt("Enter the percentage of tip as a decimal","0.15"))
-let billTotal = parseFloat(prompt("Enter the total of your bill",20.60))
-alert("Your tip would be $" + calculateTip(tipPerct, billTotal))
+alert("Your tip would be $" + calculateTip(prompt("Enter the percentage of your tip as a decimal"), prompt("Enter the total of your bill")))
 /**
  * TODO:
  * Create a function named `applyDiscount`. This function should accept a price
