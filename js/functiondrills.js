@@ -60,5 +60,44 @@
     function isMultipleOf(target, n){
         return parseInt(target) % parseInt(n) === 0 ? 'The target is evenly divisible' : 'The target is not evenly divisible';
     }
-    console.log(isMultipleOf(9,3))
+    console.log(isMultipleOf(9,3));
+//11 Make a function named isTrue(boolean)
+    function isTrue(boolean){
+        return boolean === true ? 'True' : 'Is not true';
+    }
+    console.log(isTrue(1));
+//12 Make a function named isFalse(boolean)
+    function isFalse(boolean){
+        return boolean === false ? 'False' : 'Is not false';
+    }
+    console.log(isFalse(false));
+//13 Make a function named isTruthy(input), remember that values other than true will behave like true
+    function isTruthy(boolean){
+        return boolean == true ? 'Truthy' : 'Is not truthy';
+    }
+    console.log(isTruthy(1));
+//14 Make a function named isFalsy(input), remember that values other than false behave like false
+    function isFalsy(boolean){
+        return boolean == false ? 'Falsy' : 'Is not falsy';
+    }
+    console.log(isFalsy(false));
+//15 Make a function named isVowel(letter)
+    function isVowel(letter) {
+        return letter.match('a|e|i|o|u/i') ? true : false;
+    }
+    console.log(isVowel("i"));// why does this evaluate to e?
+// Make a function named isConsonant(letter)
+// Make a function named isCapital(letter)
+// Make a function named isLowerCase(letter)
+// Make a function named hasLowerCase(string) that returns if a string has any lower cased letter
+// Make a function named isSpace(letter) that returns if a character is a space character
+// Make a function named isZero(number)
+// Make a function named notZero(input) that returns true if the input is not zero
+// Write a function named lowerCase(string)
+// Write a function named double(n) that returns a number times two
+// Write a function named triple(n) that returns a number times 3
+// Write a function named quadruple(n) that returns a number times 4
+// Write a function named half(n) that returns 1/2 of the provided input
+// Write a function named subtract(a, b) that returns a minus b
+// Write a function named multiply(a, b) that returns the product of a times b
 })();
