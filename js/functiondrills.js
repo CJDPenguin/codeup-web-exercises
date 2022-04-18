@@ -92,14 +92,31 @@
     }
     console.log(isConsonant("i"));
 //17 Make a function named isCapital(letter)
-    //This answer is not working
-    function isCapital(letter){
-        letter.match('/^[A-Z]/*$');
+    function isCapital(letter) {
+        return !/[a-z]/.test(letter) && /[A-Z]/.test(letter);
     }
-    console.log(isCapital("A"))
+    console.log(isCapital("J"))
 //18 Make a function named isLowerCase(letter)
+    function isLowerCase(letter) {
+        return /[a-z]/.test(letter) && !/[A-Z]/.test(letter);
+    }
+    console.log(isLowerCase("J"))
 //19 Make a function named hasLowerCase(string) that returns if a string has any lower cased letter
+    function hasLowerCase(string){
+        let count = 0;
+        while (count < string.length){
+            let checker = string.charAt(count);
+            if (isLowerCase(checker) === true) {
+                return true;
+            } count++;
+        } return false
+    }
+    console.log(hasLowerCase("HElp"))
 //20 Make a function named isSpace(letter) that returns if a character is a space character
+    function isSpace(letter) {
+        return /' '/.test(letter) && !/' ']/.test(letter);
+    }
+    console.log(isSpace("J"))
 //21 Make a function named isZero(number)
     function isZero(number){
         return number ===0;
@@ -111,10 +128,122 @@
     }
     console.log(notZero(17))
 //23 Write a function named lowerCase(string)
+    function lowerCase(string){
+        return string.toLowerCase();
+    }
+    console.log(lowerCase("No Billy, don't!"));
 //24 Write a function named double(n) that returns a number times two
+    function double(n){
+        return n * 2;
+    }
+    console.log(double(9));
 //25 Write a function named triple(n) that returns a number times 3
+    function triple(n){
+        return n * 3;
+    }
+    console.log(triple(7));
 //26 Write a function named quadruple(n) that returns a number times 4
+    function quadruple(n){
+        return n * 4;
+    }
+    console.log(quadruple(89));
 //27 Write a function named half(n) that returns 1/2 of the provided input
+    function half(n){
+        return n / 2;
+    }
+    console.log(half(95));
 //28 Write a function named subtract(a, b) that returns a minus b
+    function subtract(a, b){
+       return a - b;
+    }
+    console.log(subtract(78,123));
 //29 Write a function named multiply(a, b) that returns the product of a times b
+    function multiply(a, b){
+        return a * b;
+    }
+    console.log(multiply(932,72));
+//30 Write a function named remainder(a, b) that returns the remainder after dividing a by b
+    function remainder (a, b){
+        return a % b;
+    }
+    console.log(remainder(12,55));
+//31 Make a function named modulo(a, b) that returns the remainder after dividing a by b
+    function modula (a, b){
+        return a % b;
+    }
+    console.log(modula( 77, 12));
+//32 Write a function named cube(n) that returns n * n * n
+    function cube (n){
+        return Math.pow(n,3);
+    }
+    console.log(cube(2));
+//33 Write a function named squareRoot(n) that returns the square root of the input
+    function squareRoot(n){
+       return Math.sqrt(n);
+    }
+    console.log(squareRoot(16));
+//34 Write a function named cubeRoot(n) that returns the cube root of the input
+    function cubeRoot(n){
+        return Math.cbrt(n);
+    }
+    console.log(cubeRoot(99));
+//35 Write a function named invertSign(number) that returns a negative version of a postive number, a positve version of negative, and false for all else.
+    function invertSign(number) {
+       if (isNaN(number*-1) === false){
+           return number * -1;
+        } else {
+           return false;
+       }
+    }
+    console.log(invertSign(75));
+    console.log(invertSign("Jello"));
+//36 Write a function named degreesToRadians(number)
+    function degreesToRadians(number){
+        return number * Math.PI / 180;
+    }
+    console.log(degreesToRadians(90));
+//37 Write a function named radiansToDegrees(number)
+    function radiansToDegrees(number) {
+        return number * 180 / Math.PI;
+    }
+    console.log(radiansToDegrees(90));
+//38 Make a function named isBlank(input) that determines if a given input is spaces, newline characters, or tabs.
+//39 Make a function named trim(string) that removes empty spaces before and after the input.
+    function trim(string) {
+        return string.trim();
+    }
+    console.log(trim("  Howdy   "));
+//40 Make a function named areEqual(input1, input2) that returns if both inputs have the same value
+    function areEqual(input1, input2) {
+        return input1 == input2;
+    }
+    console.log(areEqual("Jello","jello"));
+//41 Make a function named areIdentical(input1, input2) that returns if both inputs are same value and data type.
+    function areIdentical(input1, input2){
+        return input1 === input2;
+    }
+    console.log(areIdentical(0,0));
+//42 Make a function named not(input) returns the input with a flipped boolean
+    function not(input) {
+        return ! input;
+    }
+    console.log(not(true));
+//43 Make a function named notNot(input) that the negation of the negation of the input.
+    function notNot(input) {
+        return !! input;
+    }
+    console.log(notNot(false));
+//44 Make a function named and(predicate1, predicate2) that returns the logical operation of AND
+    function and(predicate1, predicate2){
+        return predicate1 && predicate2;
+    }
+    console.log(and(true,true))
+//45 Make a function named or(predicate1, predicate2) that returns the logical operation of OR
+    function or (predicate1, predicate2){
+        return predicate1 || predicate2;
+    }
+    console.log(or(true,false))
+//46 Write a function called reverseString(string) that reverses a string
+//47 Make a function named absoluteValue(number) that returns the absolute value of a number.
+//48 Make a function named rollDice(sides) that takes in an argument containing the number of sides the die should have. Generate a random number between 1 up to and including the number of sides.
 })();
