@@ -83,21 +83,38 @@
     console.log(isFalsy(false));
 //15 Make a function named isVowel(letter)
     function isVowel(letter) {
-        return letter.match('a|e|i|o|u/i') ? true : false;
+        return letter.match('a|e|i|o|u/i') ? 'Is a vowel' : 'Is not a vowel';
     }
-    console.log(isVowel("i"));// why does this evaluate to e?
-// Make a function named isConsonant(letter)
-// Make a function named isCapital(letter)
-// Make a function named isLowerCase(letter)
-// Make a function named hasLowerCase(string) that returns if a string has any lower cased letter
-// Make a function named isSpace(letter) that returns if a character is a space character
-// Make a function named isZero(number)
-// Make a function named notZero(input) that returns true if the input is not zero
-// Write a function named lowerCase(string)
-// Write a function named double(n) that returns a number times two
-// Write a function named triple(n) that returns a number times 3
-// Write a function named quadruple(n) that returns a number times 4
-// Write a function named half(n) that returns 1/2 of the provided input
-// Write a function named subtract(a, b) that returns a minus b
-// Write a function named multiply(a, b) that returns the product of a times b
+    console.log(isVowel("i"));
+//16 Make a function named isConsonant(letter)
+    function isConsonant(letter){
+        return !letter.match('a|e|i|o|u/i') ? 'Is a consonant' : 'Is not a consonant';
+    }
+    console.log(isConsonant("i"));
+//17 Make a function named isCapital(letter)
+    //This answer is not working
+    function isCapital(letter){
+        letter.match('/^[A-Z]/*$');
+    }
+    console.log(isCapital("A"))
+//18 Make a function named isLowerCase(letter)
+//19 Make a function named hasLowerCase(string) that returns if a string has any lower cased letter
+//20 Make a function named isSpace(letter) that returns if a character is a space character
+//21 Make a function named isZero(number)
+    function isZero(number){
+        return number ===0;
+    }
+    console.log(isZero(0))
+//22 Make a function named notZero(input) that returns true if the input is not zero
+    function notZero(number){
+        return number !== 0;
+    }
+    console.log(notZero(17))
+//23 Write a function named lowerCase(string)
+//24 Write a function named double(n) that returns a number times two
+//25 Write a function named triple(n) that returns a number times 3
+//26 Write a function named quadruple(n) that returns a number times 4
+//27 Write a function named half(n) that returns 1/2 of the provided input
+//28 Write a function named subtract(a, b) that returns a minus b
+//29 Write a function named multiply(a, b) that returns the product of a times b
 })();
