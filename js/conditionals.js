@@ -64,19 +64,12 @@
 function analyzeColor(color){
     switch (color){
         case "red" : return "Red is the color of sunsets in the desert";
-            break
         case "orange" : return "Orange is the only word in the English language that doesn't have a rhyme.";
-            break
         case "yellow" : return "Yellow is used as a default skin tone in many simple types of animation";
-            break
         case "green" : return "Green grass grows in the meadow";
-            break
         case "blue" : return "Blue flames are actually some of the hottest";
-            break
         case "indigo" : return "What even is indigo? Why is this its own color?";
-            break
         case "violet" : return "Violet has been used as a color to symbolize status for a long time due to the rarity of naturally occurring dyes.";
-            break
         default : return "I don't know anything about that color"
     }
     }
@@ -115,15 +108,10 @@ function calculateTotal(luckyNumber,Total){
     function discount(luckyNumber){
        switch (luckyNumber) {
             case 1: return 0.9;
-                break
             case 2: return 0.75;
-                break
             case 3 : return 0.65;
-                break
             case 4 : return 0.50;
-                break
             case 5 : return 0;
-                break
             default : return 1}
     }
     }
@@ -162,22 +150,22 @@ let total = parseFloat(prompt("How much was the bill?"))
      * HINT: The way we prompt for a value could be improved
      */
     if(confirm("Would you like to enter a number?") === true) {
-        let num = prompt("Please enter a number.");
+        let num = parseFloat(prompt("Please enter a number."));
         if(isNaN(num) === true){
             return alert("You did not enter in a number, please try again.")
         } else {
             function evenOdd(num) {
-                return (parseFloat(num)) % 2 === 0 ? 'Your number is even' : 'Your number is odd';
+                return num) % 2 === 0 ? 'Your number is even' : 'Your number is odd';
             }
 
             console.log(evenOdd(num));
 
             function plusHundred(num) {
-                return parseFloat(num) + 100;
+                return num + 100;
             }
             console.log(plusHundred(num));
             function negPos(num) {
-                return parseFloat(num) > 0 ? 'Your number is positive' : 'Your number is negative';
+                return num > 0 ? 'Your number is positive' : 'Your number is negative';
             }
             console.log(negPos(num));
             alert(evenOdd(num));

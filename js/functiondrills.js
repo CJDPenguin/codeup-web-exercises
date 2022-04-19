@@ -237,13 +237,26 @@
     function and(predicate1, predicate2){
         return predicate1 && predicate2;
     }
-    console.log(and(true,true))
+    console.log(and(true,true));
 //45 Make a function named or(predicate1, predicate2) that returns the logical operation of OR
-    function or (predicate1, predicate2){
+    function or(predicate1, predicate2){
         return predicate1 || predicate2;
     }
-    console.log(or(true,false))
+    console.log(or(true,false));
 //46 Write a function called reverseString(string) that reverses a string
+    function reverseString(string) {
+        let splitString = string.split("");
+        return splitString.reverse().join("");
+    }
+    console.log(reverseString("Jello"));
 //47 Make a function named absoluteValue(number) that returns the absolute value of a number.
+    function absoluteValue(number) {
+        return Math.abs(number);
+    }
+    console.log(absoluteValue(8));
 //48 Make a function named rollDice(sides) that takes in an argument containing the number of sides the die should have. Generate a random number between 1 up to and including the number of sides.
+    function rollDice(sides) {
+       return Math.floor(Math.random() * sides + 1);
+    }
+    console.log(rollDice(20));
 })();
