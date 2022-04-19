@@ -259,4 +259,156 @@
        return Math.floor(Math.random() * sides + 1);
     }
     console.log(rollDice(20));
+//Simple Function Drills
+// Make a function called returnTwo() that returns the number 2 when called
+// Test this function with console.log(returnTwo())
+function returnTwo() {
+    return 2;
+}
+console.log(returnTwo());
+// Make a function called sayHowdy() which console.logs the string “Howdy!”
+function sayHowdy() {
+    console.log("Howdy");
+}
+// Test this function by directly calling sayHowdy()
+sayHowdy();
+// Remember this function does not need a defined return value
+//
+// Make a function called returnName() that returns the string of your name
+function returnName(){
+    return "Chris Davis";
+}
+// Test this function with console.log(returnName())
+    console.log(returnName());
+// Make a function called addThree() which takes in a number input and returns the number plus 3.
+// Test this function with console.log(addThree(5))
+function addThree(num) {
+    return parseFloat(num) + 3;
+}
+console.log(addThree(5));
+// Make a function called sayString() which returns the string input passed in.
+// Test this function with console.log(sayString('codeup'))
+function sayString(input) {
+    return input.toString();
+}
+console.log(sayString("codeup"));
+// Challenge Function Drills
+// Write a function called identity(input) that takes in an argument called input and returns that input.
+function identity(input) {
+    return input;
+}
+// Write a function called getRandomNumber(min, max) that returns a random number between min and max values sent to that function call.
+    function getRandomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min) + min);
+    }
+    console.log(getRandomNumber(6,9));
+// Write a function called first(input) that returns the first character in the provided string.
+function first(input) {
+    return input.charAt(0);
+}
+console.log(first("Jello"));
+// Write a function called last(input) that returns the last character of a string
+function last(input) {
+    return input.charAt(input.length - 1);
+}
+console.log(last("Jello"));
+// Write a function called rest(input) that returns everything but the first character of a string.
+function rest(input) {
+    return input.substring(1 , input.length);
+}
+console.log(rest("Jello"));
+// Write a function called reverse(input) that takes a string and returns it reversed.
+function reverse(input) {
+        let splitString = input.split("");
+        return splitString.reverse().join("");
+    }
+console.log(reverse("Jello"));
+// Write a function called isNumeric(input) that takes an input and returns a boolean if the input is numeric.
+function isNumeric(input) {
+    return ! isNaN(input)
+}
+console.log(isNumeric("1"))
+// Write a function called count(input) that takes in a string and returns the number of characters.
+function count(input) {
+    return input.length;
+}
+console.log(count("Jello"));
+// Write a function called add(a, b) that returns the sum of a and b
+function add (a , b) {
+    return parseFloat(a) + parseFloat(b);
+}
+console.log(add(1,5));
+// Write a function called subtract(a, b) that return the difference between the two inputs.
+    function subtract (a , b) {
+        return parseFloat(a) - parseFloat(b);
+    }
+    console.log(subtract(1,5));
+// Write multiply(a, b) function that returns the product
+    function multiply (a , b) {
+        return parseFloat(a) * parseFloat(b);
+    }
+    console.log(multiply(1,5));
+// Write a divide(numerator, denominator) function that returns a divided by b
+function divide (a , b) {
+    return parseFloat(a) / parseFloat(b);
+}
+console.log(divide(7,3))
+// Write a remainder(number, divisor) function that returns the remainder left over when dividing number by the divisor
+function remainder(a , b) {
+    return (((parseFloat(a) / parseFloat(b)) - Math.floor(parseFloat(a) / parseFloat(b))) * b);
+}
+console.log(remainder(8,3));
+console.log(8 % 3);
+// Write the function square(a) that takes in a number and returns the number multiplied by itself.
+function square(a) {
+    return Math.pow(a,2);
+}
+console.log(square(4));
+// Write a function called sumOfSquares(a, b) that uses only your add() function and your square function and not + or * operators
+function sumOfSquares(a , b) {
+    return add(square(a),square(b));
+}
+ console.log(sumOfSquares(4,5));
+// Write a function called doMath(operator, a, b) that takes 3 parameters. The first parameter is the name of the math function you want to apply. a and b are the two numbers to run that function on.
+function doMath(operator, a, b) {
+    switch (operator){
+        case "+" : return a + b;
+        case "-" : return a - b;
+        case "*" : return a * b;
+        case "/" : return a / b;
+        case "%" : return a % b;
+        default : return "Oops";
+    }
+}
+console.log(doMath("/",9,3));
+// Even More Function Bonuses
+// Create a function that takes in two string inputs.
+// If the second string input is present in the first, return the first input string with the second input string removed from it.
+// If the second string input is present multiple times in the first, the second string will only be removed where it first occurs in the first string.
+// If the second string input is not present in the first, return the first string as entered in the function.
+    function stringCheck (str1, str2) {
+       if(str1.includes(str2)) {
+           let indx1 = str1.indexOf(str2.charAt(0));
+           console.log(indx1)
+           let indx2 = str1.indexOf(str2.charAt(str2.length - 1));
+           console.log(indx2)
+           return str1.substring(indx1,indx2);
+       } else {
+           return str1;
+       }
+    }
+    console.log(stringCheck("BlackDuck", "Black"))
+    console.log(stringCheck("Rick", "Grimes"))
+// Create a function that takes in a string and returns true if the last letter is an "a" (otherwise, return false).
+//
+// EXTRA CHALLENGE: create a function that will return how many whitespace characters are at the beginning of a string (hint: use regex).
+//
+// Create a function returnTrueMessage() that returns the string "Hey, it's true!"
+//
+// Create a function returnFalseMessage() that returns the string "Hey, it's false!"
+// Create a function returnMessage() that takes in a function and returns the call to the function
+// Experiement passing in different functions.
+// Create a function, willLoginUser() that takes in a username string, password string, user age, a boolean indicating if they are an admin.
+//
+// The function will return true if the username is not the same as the password and the user is at least 18 years old. If the user is an admin, they do not have to be a certain age but the password must still not match the username.
 })();
