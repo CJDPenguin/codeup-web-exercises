@@ -442,7 +442,7 @@ console.log(returnTrueMessage());
                 alert("Welcome admin " + username)
             } else if (age >= 18) {
                 alert("Welcome " + username)
+            }else alert("Unable to log you in, please refresh the page and try again.");
             }
-            } alert("Unable to log you in, please refresh the page and try again.");
     } willLoginUser()
 })();
