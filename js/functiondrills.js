@@ -389,26 +389,60 @@ console.log(doMath("/",9,3));
     function stringCheck (str1, str2) {
        if(str1.includes(str2)) {
            let indx1 = str1.indexOf(str2.charAt(0));
-           console.log(indx1)
            let indx2 = str1.indexOf(str2.charAt(str2.length - 1));
-           console.log(indx2)
-           return str1.substring(indx1,indx2);
+           return str1.replace(str1.substring(indx1 , (indx2 + 1)),"");
        } else {
            return str1;
        }
     }
-    console.log(stringCheck("BlackDuck", "Black"))
-    console.log(stringCheck("Rick", "Grimes"))
+    console.log(stringCheck("BlackDuck", "Black"));
+    console.log(stringCheck("Rick", "Grimes"));
+    console.log(stringCheck("The killer robot ran away","killer"));
 // Create a function that takes in a string and returns true if the last letter is an "a" (otherwise, return false).
-//
+    function noA(input) {
+        if (input.charAt(input.length - 1) === "a") {
+            return true;
+        } else return false;
+    }
+    console.log(noA("Jello"));
+    console.log(noA("Killa"));
 // EXTRA CHALLENGE: create a function that will return how many whitespace characters are at the beginning of a string (hint: use regex).
-//
+function whiteCount(input) {
+    let emptySpace = /s* /g;
+    return input.match(emptySpace).length
+}
+console.log(whiteCount("   Jeez"));
+console.log(whiteCount(" J e e z "));
 // Create a function returnTrueMessage() that returns the string "Hey, it's true!"
-//
+function returnTrueMessage() {
+    return "Hey, it's true!";
+}
+console.log(returnTrueMessage());
 // Create a function returnFalseMessage() that returns the string "Hey, it's false!"
+    function returnFalseMessage() {
+        return "Hey, it's false!";
+    }
+    console.log(returnFalseMessage());
 // Create a function returnMessage() that takes in a function and returns the call to the function
+   function returnMessage(func) {
+       return func;
+   }
 // Experiement passing in different functions.
+    console.log(returnMessage(returnTrueMessage()));
 // Create a function, willLoginUser() that takes in a username string, password string, user age, a boolean indicating if they are an admin.
 //
 // The function will return true if the username is not the same as the password and the user is at least 18 years old. If the user is an admin, they do not have to be a certain age but the password must still not match the username.
+    function willLoginUser(username,password,age,admin) {
+        username = prompt("Please enter your username:");
+        password = prompt("Please enter your password:");
+        age = parseInt(prompt("Please enter your age:"));
+        admin = confirm("Are you an admin?");
+        if (username !== password) {
+            if (admin === true) {
+                alert("Welcome admin " + username)
+            } else if (age >= 18) {
+                alert("Welcome " + username)
+            }
+            } alert("Unable to log you in, please refresh the page and try again.");
+    } willLoginUser()
 })();
