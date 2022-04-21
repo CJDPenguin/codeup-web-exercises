@@ -6,12 +6,12 @@
             console.log(num + ' x ' + mult + ' = ' + (num * mult));
         }
     }
-    showMultiplicationTable(Math.floor(Math.random() * 11 + 1));
-    showMultiplicationTable(Math.floor(Math.random() * 11 + 1));
+    showMultiplicationTable(Math.floor(Math.random() * 10) + 1);
+    showMultiplicationTable(Math.floor(Math.random() * 10) + 1);
 
     function randoEvenOdd(num) {
         for (let count = 1; count <= 10; count++) {
-            num = Math.floor(Math.random() * 201 + 20);
+            num = Math.floor(Math.random() * 200) + 20;
             console.log(num % 2 === 0 ? num + " is even" : num + " is odd");
         }
     }
