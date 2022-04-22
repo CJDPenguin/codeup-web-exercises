@@ -6,8 +6,8 @@
             console.log(num + ' x ' + mult + ' = ' + (num * mult));
         }
     }
-    showMultiplicationTable(Math.floor(Math.random() * 10) + 1);
-    showMultiplicationTable(Math.floor(Math.random() * 10) + 1);
+    showMultiplicationTable(Math.floor(Math.random() * 100) + 1);
+    showMultiplicationTable(Math.floor(Math.random() * 100) + 1);
 
     function randoEvenOdd(num) {
         for (let count = 1; count <= 10; count++) {
