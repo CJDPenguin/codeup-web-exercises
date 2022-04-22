@@ -54,16 +54,16 @@ for (let name of names) {
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
     function first(array){
-    console.log(array[0]);
+    return array[0];
     }
     function second(array) {
-        console.log(array[1]);
+       return array[1];
     }
     function last(array) {
-        console.log(array[array.length - 1]);
+        return array[array.length - 1];
     }
 
-    first(names);
-    second(names);
-    last(names);
+    console.log(first(names));
+    console.log(second(names));
+    console.log(last(names));
 })();
