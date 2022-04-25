@@ -22,5 +22,9 @@ let arg2 = prompt("Please enter the second number");
 //establishes two user inputs as variables arg1 and arg2
 function simpleMath(x,y){
     x = parseInt(arg1), y = parseInt(arg2)
-
+    let add = x + y;
+    let sub = x - y;
+    let mult = x * y;
+    let div = x / y;
+    return x + " + " + y + " = " +  add
 }
