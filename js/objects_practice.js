@@ -9,10 +9,10 @@
     cars.push(car);
     }
 
-    while(confirm('Would you like to enter a car?')) {
-        makeCar();
-    }
-    console.log(cars)
+    // while(confirm('Would you like to enter a car?')) {
+    //     makeCar();
+    // }
+    // console.log(cars)
 // Ex 2
     const salesReport = {
         title: 'Monthly Sales Report',
@@ -77,7 +77,30 @@
     }
     console.log(salesReport);
     //Ex 3
-    salesReport.getEmployeeCount = salesReport.employees.length
+    salesReport.getEmployeeCount = salesReport.employees.length //returns the number of employees in the sales report
     console.log(salesReport.getEmployeeCount);
-    salesReport.getTotalNumberOfSales = 'y'
+    // gets the total units sold by all employees
+    salesReport.getTotalNumberOfSales = function () {
+        let total = 0;
+     for (let employee of salesReport.employees) {
+         total += employee.salesUnits;
+     }
+    return total}
+    console.log(salesReport.getTotalNumberOfSales());
+    //gets average units sold by employee
+    salesReport.getAverageSalesPerEmployee = function () {
+        return salesReport.getTotalNumberOfSales() / salesReport.getEmployeeCount
+    }
+    console.log(salesReport.getAverageSalesPerEmployee());
+    //Stopwatch object
+    const stopWatch = {
+        intervalId: 1,
+        count: 0
+    }
+
+    stopWatch.start = setInterval(function () {
+        console.log(stopWatch.count);
+        stopWatch.count++
+    },1000)
+
 })()
