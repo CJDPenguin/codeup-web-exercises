@@ -13,8 +13,17 @@ body {
     background-size: cover;
     background-color: burlywood;
 }
-label {
-    display: inline-block;
-    justify-content: center;
-    text-align: center;
+.container {
+    display: flex;
+    align-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px
+}
+.item {
+    display: flex;
+    flex-shrink: 1;
+    flex-grow: 1;
+    flex-basis: 15px;
+    align-self: flex-end;
 }
