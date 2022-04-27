@@ -20,4 +20,14 @@
         }
     }
     fizzBuzz();
+
+    function abbreviate(array) {
+       let abbreviated = "";
+       for (let letter of array) {
+           abbreviated += letter[0];
+       }
+       return abbreviated.toUpperCase()
+    }
+    const array1 = ["dog", "cat", "frog", "bat"]
+    console.log(abbreviate(array1))
 }())
