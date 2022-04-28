@@ -1,20 +1,65 @@
 body{
-    background-color: #000;
-    background: image(url(/css/img/digital_color.png));
-    background-size: contain;
-    min-height: 100%;
-    background-blend-mode: overlay;
+    background-color: dimgrey;
+    background-image: url('../css/img/digital_color.png');
+    background-size: cover;
+    background-blend-mode: multiply;
     color: whitesmoke;
+    font-family: 'Roboto Mono', serif;
+    text-indent: 20px;
 }
 
 .main-header{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 65%;
+    width: 100%;
     padding: 10px;
 }
 .section-header{
     color: firebrick;
     text-decoration: underline;
+}
+th, td{
+    border-style: solid;
+    border-color: navajowhite;
+}
+#box{
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+    width: 100%;
+    padding: 10px;
+}
+.item{
+    display:flex;
+    justify-self:center;
+    padding: 10px;
+}
+ul.thing{
+    display: flex;
+    list-style: square;
+    font-size: larger;
+}
+ol{
+    list-style: upper-roman;
+}
+/* unvisited link (:link) */
+a:link {
+    color:firebrick;
+}
+
+/* visited link (:visited) */
+a:visited {
+    color:dimgrey;
+}
+
+/* mouse hover over link (:hover) */
+a:hover {
+    color:whitesmoke;
+}
+
+/* active/selected link (:active) */
+a:active {
+    background-color: black;
+    color:white;
 }
