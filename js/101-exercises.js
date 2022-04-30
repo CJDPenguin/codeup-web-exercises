@@ -666,7 +666,8 @@ addToDone("Exercise 43 is correct.")
 // Exercise 44
 // Write a function definition named hasVowels that takes in value and returns true if the string contains any vowels.
 function hasVowels(input){
-    return ['a', 'e', 'i', 'o', 'u'].indexOf(input.toLowerCase()) !== -1;
+    const valRegEx = /[aeiou]/i;
+    return valRegEx.test(input);
 }
 assert(hasVowels("banana"), true, "Exercise 44");
 assert(hasVowels("ubuntu"), true, "Exercise 44");
@@ -677,6 +678,7 @@ addToDone("Exercise 44 is correct.")
 
 // Exercise 45
 // Write a function definition named countVowels that takes in value and returns the count of the nubmer of vowels in a sequence.
+const countVowels = str => Array.from(str).filter(letter => 'aeiou'.includes(letter)).length;
 
 assert(countVowels("banana"), 3, "Exercise 45");
 assert(countVowels("ubuntu"), 3, "Exercise 45");
