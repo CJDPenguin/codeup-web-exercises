@@ -37,4 +37,11 @@
     }
 
     console.log(alphabetize("codeup"));
+
+    //Write a function that takes in an array of numbers and returns the sum of all elements
+    function addAnArray(array){
+        return array.reduce((a,b) => a + b);
+    }
+
+    console.log(addAnArray([1, 2, 3, 4, 5]));// expect 15
 }())
