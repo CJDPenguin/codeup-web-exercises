@@ -44,4 +44,45 @@
     }
 
     console.log(addAnArray([1, 2, 3, 4, 5]));// expect 15
+
+    //write a function, returnProductDetails, that takes in a product object and returns some of the details.
+let productArray = {
+    product1 : {
+        name: 'Hammar',
+        priceInCents: 400,
+        description: 'It is a a hammar.',
+        inventory: 25034
+    },
+
+    product2: {
+        name: 'Computer',
+        priceInCents: 40000,
+        description: 'It is a computer.',
+        inventory: 33000
+    },
+
+    product3: {
+        name: 'Ruler',
+        priceInCents: 1000,
+        description: 'It is a ruler.',
+        inventory: 2200
+    }}
+
+    function returnProductDetails(product){
+        let name = product.name, price = product.priceInCents;
+        return {name, price};
+    }
+
+    console.log(returnProductDetails(productArray.product1));
+    console.log(returnProductDetails(productArray.product2));
+    console.log(returnProductDetails(productArray.product3));
+    //
+    // function returnAllProductEssentialDetails(productArray){
+    //     let essentialDetails =[];
+    //     productArray.forEach(function (product){
+    //         essentialDetails.push(returnProductDetails(product));
+    //     })
+    //     return essentialDetails;
+    // }
+    // returnAllProductEssentialDetails(productArray);
 }())
