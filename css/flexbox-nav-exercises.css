@@ -12,17 +12,16 @@ section{
 }
 .nav-item{
     display: flex;
-    justify-content: center;
-    flex-basis: 80%;
     list-style: none;
     font-weight: bold;
-    font-size: smaller;
+    font-size: small;
+    padding: 0
 }
 .logo{
-    width: 3em;
     font-family: 'Montserrat', sans-serif;
-    font-size: larger;
-    padding: .2em 0;
+    font-size: 3em;
+    padding-bottom: .2em;
+    padding-top: .2em;
 }
 a {
     color: #000;
@@ -32,4 +31,7 @@ a {
 }
 a:hover{
     color: #00f;
+}
+p{
+    margin: 0;
 }
