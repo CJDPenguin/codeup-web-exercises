@@ -39,8 +39,157 @@
     </div>
 </nav>
 <div class="container">
-    <div class="container-fluid jumbotron">
-        <div class="bg-light text-dark bg-opacity-50 mx-auto">Welcome to Pizza World!</div>
+    <div class="container-fluid jumbotron d-flex flex-column justify-content-center align-items-center">
+        <div class="bg-light text-dark bg-opacity-50 mp-auto text-center fs-1 min-vw-100 d-none d-md-block">Welcome to Pizza World!</div>
+    </div>
+    <h2>Build your own pizza!</h2>
+    <ul class="nav nav-tabs justify-content-start" id="pizzaBuilder" role="tablist">
+        <li class="nav-item position-relative" role="presentation">
+            <button class="nav-link active ps-5" id="sizeCrust-tab" data-bs-toggle="tab" data-bs-target="#sizeCrust" type="button" role="tab" aria-controls="sizeCrust" aria-selected="true">Size & Crust<span class="badge rounded-pill position-absolute start-0 mx-2 bg-secondary">1</span></button>
+        </li>
+        <li class="nav-item position-relative" role="presentation">
+            <button class="nav-link ps-5" id="cheeseSauce-tab" data-bs-toggle="tab" data-bs-target="#cheeseSauce" type="button" role="tab" aria-controls="cheeseSauce" aria-selected="false">Cheese & Sauce<span class="badge rounded-pill position-absolute start-0 mx-2 bg-secondary">2</span></button>
+        </li>
+        <li class="nav-item position-relative" class="presentation">
+            <button class="nav-link ps-5" id="toppings-tab" data-bs-toggle="tab" data-bs-target="#toppings" type="button" role="tab" aria-controls="toppings" aria-selected="false">Toppings<span class="badge rounded-pill position-absolute start-0 mx-2 bg-secondary">3</span></button>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="sizeCrust" role="tabpanel" aria-labelledby="sizeCrust-tab">
+        <div class="card">
+            <h5 class="card-title bg-primary p-3 text-light">Choose Size & Crust</h5>
+            <div class="card-body d-flex flex-column justify-content-between">
+                <div class="card">
+                    <h6 class="card-title p-2 bg-light" >Hand Tossed</h6>
+                    <div class="card-body">Garlic seasoned crust with a rich, buttery taste.
+                        <div class="list-group">
+                            <label class="list-group-item">
+                                <input class="form-radio-input me-1" type="radio" name="tossed-size">
+                                Small (10")
+                            </label>
+                            <label class="list-group-item">
+                                <input class="form-radio-input me-1" type="radio" name="tossed-size">
+                                Medium (12")
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h6 class="card-title p-2 bg-light" >Crispy Thin</h6>
+                    <div class="card-body">Thin enough for optimum crispy to crunchy ratio.
+                        <div class="list-group">
+                            <label class="list-group-item">
+                                <input class="form-radio-input me-1" type="radio" name="thin-size">
+                                Medium (12")
+                            </label>
+                            <label class="list-group-item">
+                                <input class="form-radio-input me-1" type="radio" name="thin-size">
+                                Large (14")
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <a class="btn align-self-end my-3 btn-primary">Next Step ></a>
+            </div>
+        </div>
+        </div>
+        <div class="tab-pane fade" id="cheeseSauce" role="tabpanel" aria-labelledby="cheeseSauce-tab">
+        <div class="card">
+            <h5 class="card-title p-3 bg-primary text-light">Choose Cheese & Sauce</h5>
+            <div class="card-body d-flex flex-column justify-content-between">
+                <div class="card">
+                    <h6 class="card-title p-2 bg-light" >Cheese</h6>
+                    <div class="card-body">
+                        <label for="cheeseAmount" class="form-label">How much?</label>
+                        <input class="form-control" list="cheese" id="cheeseAmount" placeholder="Normal">
+                        <datalist id="cheese">
+                            <option value="Light">
+                            <option value="Normal">
+                            <option value="Extra">
+                            <option value="Double">
+                        </datalist>
+                    </div>
+                </div>
+                <div class="card">
+                    <h6 class="card-title p-2 bg-light" >Sauce</h6>
+                    <div class="card-body">
+                        <label for="sauceType" class="form-label">What Type?</label>
+                        <input class="form-control" list="sauce" id="sauceType" placeholder="Tomato">
+                        <datalist id="sauce">
+                            <option value="Tomato">
+                            <option value="Marinara">
+                            <option value="BBQ">
+                        </datalist>
+                        <label for="sauceAmount" class="form-label">How much?</label>
+                        <input class="form-control" list="howSauce" id="sauceAmount" placeholder="Normal">
+                        <datalist id="howSauce">
+                            <option value="Light">
+                            <option value="Normal">
+                            <option value="Extra">
+                        </datalist>
+                    </div>
+                </div>
+                    <div class="btn-group my-3 align-self-end" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-primary">< Previous</button>
+                        <button type="button" class="btn btn-primary">Next ></button>
+                    </div>
+            </div>
+        </div>
+        </div>
+        <div class="tab-pane fade" id="toppings" role="tabpanel" aria-labelledby="toppings-tab">
+        <div class="card">
+            <h5 class="card-title bg-primary p-3 text-light">Choose Toppings</h5>
+            <div class="card-body d-flex flex-column justify-content-between">
+                <div class="card">
+                    <h6 class="card-title p-2 bg-light" >Choose Meats</h6>
+                    <div class="card-body">
+                        <div class="list-group">
+                            <label class="list-group-item">
+                                <input class="form-checkbox-input me-1" type="checkbox" name="meats">
+                                Beef
+                            </label>
+                            <label class="list-group-item">
+                                <input class="form-checkbox-input me-1" type="checkbox" name="meats">
+                                Ham
+                            </label>
+                            <label class="list-group-item">
+                                <input class="form-checkbox-input me-1" type="checkbox" name="meats">
+                                Philly Steak
+                            </label>
+                            <label class="list-group-item">
+                                <input class="form-checkbox-input me-1" type="checkbox" name="meats">
+                                Bacon
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h6 class="card-title p-2 bg-light" >Choose Non-Meats</h6>
+                    <div class="card-body">
+                        <div class="list-group">
+                            <label class="list-group-item">
+                                <input class="form-checkbox-input me-1" type="checkbox" name="notmeats">
+                                Green Peppers
+                            </label>
+                            <label class="list-group-item">
+                                <input class="form-checkbox-input me-1" type="checkbox" name="notmeats">
+                                Mushrooms
+                            </label>
+                            <label class="list-group-item">
+                                <input class="form-checkbox-input me-1" type="checkbox" name="notmeats">
+                                Onions
+                            </label>
+                            <label class="list-group-item">
+                                <input class="form-checkbox-input me-1" type="checkbox" name="notmeats">
+                                Jalapeno Peppers
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="btn align-self-end my-3 btn-primary">Checkout <i class="bi bi-cart"></i></a>
+            </div>
+            </div>
+    </div>
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
