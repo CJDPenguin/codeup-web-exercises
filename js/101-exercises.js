@@ -640,14 +640,14 @@ addToDone("Exercise 42 is correct.")
 // The following two example functions are examples that provide a hint on how to as
 
 // Example function where the function returns true if the input is one OR two.
-function isOneOrTwo(x) {
-    return x == 1 || x == 2
-}
+// function isOneOrTwo(x) {
+//     return x == 1 || x == 2
+
 
 // Example function where the input is one of 3 possibilities
-function isOneOrTwoOrThree(x) {
-    return x == 1 || x == 2 || x == 3
-}
+// function isOneOrTwoOrThree(x) {
+//     return x == 1 || x == 2 || x == 3
+// }
 
 // Exercise 43
 // Review this code carefully https://gist.github.com/ryanorsinger/5627b954d119dabb3d8c44d56b38c354 if you want more guidance on Exercises 43, 44, and 45.
@@ -816,7 +816,12 @@ addToDone("Exercise 58 is correct.")
 
 // Exercise 59
 // Write a function definition named firstToLast that takes in sequence and returns the sequence with the first value moved to the end of the sequence.
-
+const firstToLast = array => {
+   let element = array[0];
+   array.splice(0,1);
+   array.push(element);
+   return array;
+}
 assert(firstToLast([1, 2, 3, 4]), [2, 3, 4, 1], "Exercise 59");
 assert(firstToLast(["JS", "is", "awesome"]), ["is", "awesome", "JS"], "Exercise 59");
 assert(firstToLast(["strawberry", "kiwi", "mango", "guava"]), ["kiwi", "mango", "guava", "strawberry"], "Exercise 59");
@@ -826,7 +831,13 @@ addToDone("Exercise 59 is correct.")
 
 // Exercise 60
 // Write a function definition named sumAll that takes in sequence of numbers and returns all the numbers added together.
-
+function sumAll(array) {
+    let total=0;
+    for (let num of array){
+        total += num;
+    }
+    return total;
+}
 assert(sumAll([1, 2, 3, 4]), 10, "Exercise 60");
 assert(sumAll([3, 3, 3]), 9, "Exercise 60");
 assert(sumAll([0, 5, 6]), 11, "Exercise 60");
@@ -836,7 +847,13 @@ addToDone("Exercise 60 is correct.")
 
 //  Exercise 61
 //  Write a function definition named mean that takes in sequence of numbers and returns the average value
-
+function mean(array){
+    let total = 0;
+    for (let num of array){
+        total += num;
+    }
+    return total/array.length;
+}
 assert(mean([1, 2, 3, 4]), 2.5, "Exercise 61");
 assert(mean([3, 3, 3]), 3, "Exercise 61");
 assert(mean([1, 5, 6]), 4, "Exercise 61");
@@ -846,7 +863,11 @@ addToDone("Exercise 61 is correct.")
 
 // Exercise 62
 // Write a function definition named median that takes in sequence of numbers and returns the average value
-
+function median(array){
+    if (array.length % 2 !== 0) {
+        return array[Math.floor(array.length / 2)];
+    } return array[Math.floor(array.length/2)-1] + ((array[Math.ceil(array.length / 2)] - array[Math.floor(array.length / 2)-1])/2);
+}
 assert(median([1, 2, 3, 4, 5]), 3.0, "Exercise 62");
 assert(median([1, 2, 3]), 2.0, "Exercise 62");
 assert(median([1, 5, 6]), 5.0, "Exercise 62");
@@ -856,7 +877,21 @@ addToDone("Exercise 62 is correct.")
 
 // Exercise 63
 // Write a function definition named maxMinusMin that takes in an array of numbers and returns the difference of the maximum minus theminimum.
-
+function maxMinusMin(array){
+    let max= -Infinity;
+    let min= Infinity;
+    for (let num of array){
+        if (num > max) {
+            max = num;
+        }
+    }
+    for (let num of array){
+        if (num < min){
+            min = num;
+        }
+    }
+    return max - min;
+}
 
 assert(maxMinusMin([1, 2, 2, 8, 3, 4]), 7, "Exercise 63");
 assert(maxMinusMin([1, 1, 2, 3, 9]), 8, "Exercise 63");
@@ -866,7 +901,13 @@ addToDone("Exercise 63 is correct.")
 
 // Exercise 64
 // Write a function definition named productOfAll that takes in sequence of numbers and returns the product of multiplying all the numbers together
-
+function productOfAll(array){
+    let product=1;
+    for (let num of array){
+        product = product * num;
+    }
+    return product;
+}
 assert(productOfAll([1, 2, 3]), 6, "Exercise 64");
 assert(productOfAll([3, 4, 5]), 60, "Exercise 64");
 assert(productOfAll([2, 2, 3, 0]), 0, "Exercise 64");
@@ -875,7 +916,14 @@ addToDone("Exercise 64 is correct.")
 
 // Exercise 65
 // Write a function definition named getHighestNumber that takes in sequence of numbers and returns the largest number.
-
+ function getHighestNumber(array) {
+     let max = -Infinity;
+     for (let num of array) {
+         if (num > max) {
+             max = num;
+         }
+     } return max;
+ }
 
 assert(getHighestNumber([1, 2, 3]), 3, "Exercise 65");
 assert(getHighestNumber([1, 5, 2, 3, 4]), 5, "Exercise 65");
@@ -887,7 +935,14 @@ addToDone("Exercise 65 is correct.")
 
 // Exercise 66
 // Write a function definition named getSmallestNumber that takes in sequence of numbers and returns the smallest number.
-
+function getSmallestNumber(array){
+    let min = Infinity;
+    for (let num of array){
+        if (num < min) {
+            min = num;
+        }
+    } return min;
+}
 
 assert(getSmallestNumber([1, 2, 3]), 1, "Exercise 66");
 assert(getSmallestNumber([3, 5, 9, 8, 1]), 1, "Exercise 66");
@@ -897,7 +952,15 @@ addToDone("Exercise 66 is correct.")
 
 // Exercise 67
 // Write a function definition named onlyOddNumbers that takes in sequence of numbers and returns the odd numbers in an array.
-
+function onlyOddNumbers(array){
+    let oddNumbers = [];
+    for (let num of array){
+        if (num % 2 !==0){
+            oddNumbers.push(num);
+        }
+    }
+    return oddNumbers
+}
 assert(onlyOddNumbers([1, 2, 3]), [1, 3], "Exercise 67");
 assert(onlyOddNumbers([-5, -4, -3, -2, -1, 1, 2, 3, 4, 5]), [-5, -3, -1, 1, 3, 5], "Exercise 67");
 assert(onlyOddNumbers([-4, -3, 1]), [-3, 1], "Exercise 67");
