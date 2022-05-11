@@ -157,4 +157,20 @@ let productArray = {
     }
 
     console.log(mostColorfulFor(hamsters));
+
+    //write a function that will accept a string. It should return an object with the following properties: string. size, contains letters from RSTLNE and is one word.
+
+    function makeObjectFromString(string){
+        return {
+            string: string,
+            size: string.length,
+            containsLetterFromRSTLNE: /[rstlne]/i.test(string), // let lc = str.toLowerCase(); if (lc.includes("r"||"s"||"t"||"l"||"n"||"e"))
+            isOneWord: !(/\s/.test(string)) //string.indexOf(" ") < 0;
+        };
+    }
+
+    console.log(makeObjectFromString('tacocat'));
+    console.log(makeObjectFromString('John Jacob'));
+    console.log(makeObjectFromString('curiosity killed the cat'));
+    console.log(makeObjectFromString('kabob bobby'));
 }())
