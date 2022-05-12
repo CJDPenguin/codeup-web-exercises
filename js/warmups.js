@@ -173,4 +173,19 @@ let productArray = {
     console.log(makeObjectFromString('John Jacob'));
     console.log(makeObjectFromString('curiosity killed the cat'));
     console.log(makeObjectFromString('kabob bobby'));
+
+    //Jimmy wants to buy and sell some metal. If he has two and a half pounds he can smelt it into an ingot and sell back the metal for triple the profit. Any metal he has, he can sell back for a thirty percent loss. Jimmy will always make an ingot if he can, and will sell all the metal he has, ingot or not. The metal Jimmy wants to smelt is priced at fifteen dollars per eight ounces. Create a function that will take in an amount of money, in dollars, that will return how much money Jimmy made from his investment.
+
+    // 2.5 lb = ingot = profit * 3; leftovers = -30% profit; cost = $15 per 8 oz.
+
+    function smelterProfit(cost){
+        let baseMetalOz = parseFloat(cost) * (8/15);
+        let ingotCount = 0
+        while (baseMetalOz >= 40) {
+            ingotCount++;
+            baseMetalOz -= 40;
+        }
+        return 'If Jimmy spends $' + cost.toFixed(2) + ', he will make $' + ((ingotCount * 75 * 3).toFixed(2) - (baseMetalOz * (8/15) * 0.7).toFixed(2))
+    }
+    console.log(smelterProfit(211950));
 }())
