@@ -17,6 +17,7 @@
                 break
             }
         } while (true);
+
         for (let count = 1; count < 50; count +=2) {
             if (count === input) {continue}
             console.log(count);
