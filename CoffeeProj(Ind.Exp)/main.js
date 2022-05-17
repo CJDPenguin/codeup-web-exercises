@@ -1,33 +1,22 @@
 "use strict"
 
-function renderCoffee(coffeeType) {
-    // var html = '<tr class="coffee">';
-    // html += '<td>' + coffee.id + '</td>';
-    // html += '<td>' + coffee.name + '</td>';
-    // html += '<td>' + coffee.roast + '</td>';
-    // html += '</tr>';
-    //
-    // return html;
-    let html = ''
-    coffeeType.forEach(() => {
-        html += '<div class = coffee><h3>' + coffeeType.name + '</h3><p>' + coffeeType.roast + '</p>';
-    })
-    console.log(html);
+function renderCoffee(coffee) {
+    var html = '<tr class="coffee">';
+    html += '<td>' + coffee.id + '</td>';
+    html += '<td>' + coffee.name + '</td>';
+    html += '<td>' + coffee.roast + '</td>';
+    html += '</tr>';
+
     return html;
 }
 
-// function renderCoffees(coffees) {
-//     // var html = '';
-//     // for(var i = coffees.length - 1; i >= 0; i--) {
-//     //     html += renderCoffee(coffees[i]);
-//     // }
-//     // return html;
-//     let html = '';
-//     coffees.forEach(function(){
-//         html += renderCoffee(coffees);
-//     })
-//     return html
-// }
+function renderCoffees(coffees) {
+    var html = '';
+    for(var i = coffees.length - 1; i >= 0; i--) {
+        html += renderCoffee(coffees[i]);
+    }
+    return html;
+}
 
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
@@ -42,7 +31,7 @@ function updateCoffees(e) {
 }
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
-const coffees = [
+var coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
     {id: 2, name: 'Half City', roast: 'light'},
     {id: 3, name: 'Cinnamon', roast: 'light'},
@@ -59,11 +48,10 @@ const coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
-let coffeeList = document.querySelector('#coffees');
+var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
 
-console.log(coffeeList);
-coffeeList.innerHTML = renderCoffee(coffees);
+tbody.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
