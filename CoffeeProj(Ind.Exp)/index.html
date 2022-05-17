@@ -2,32 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Fancy Coffee Co.</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Coffee!</h1>
-
+<h1>Fancy Coffee Co.</h1>
+<h2>Purveyors of fine coffees</h2>
+<p>Search or filter to see our offered styles</p>
 <form>
     <label for="roast-selection"></label>
     <select id="roast-selection">
+        <option>Select roast</option>
         <option>light</option>
         <option>medium</option>
         <option>dark</option>
     </select>
+    <label for="coffeeSearch"></label>
+    <input type="search" id="coffeeSearch" name="q" placeholder="Enter your search here">
     <input id="submit" type="submit" />
 </form>
 
-<table>
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>NAME</th>
-        <th>ROAST</th>
-    </tr>
-    </thead>
-    <tbody id="coffees"></tbody>
-</table>
+<section id="coffees">
+</section>
 
 <script src="main.js"></script>
 </body>
