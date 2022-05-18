@@ -5,8 +5,8 @@ function renderCoffee(coffee) {
 }
 
 function renderCoffees(coffees) {
-    var html = '';
-    for(var i = coffees.length - 1; i >= 0; i--) {
+    let html = '';
+    for(let i = coffees.length - 1; i >= 0; i--) {
         html += renderCoffee(coffees[i]);
     }
     return html;
@@ -22,6 +22,18 @@ function updateCoffees(e) {
         }
     });
     tbody.innerHTML = renderCoffees(filteredCoffees);
+}
+
+function filterSearch(){
+    let isLight = document.querySelector("[name='roast']").checked;
+    let isMedium = document.querySelector("[name='roast']").checked;
+    let isDark = document.querySelector('#dark').checked
+    console.log(isLight);
+    console.log(isMedium);
+    console.log(isDark);
+    if (document.querySelector('#light').checked === true){
+
+    }
 }
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide

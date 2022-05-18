@@ -8,18 +8,32 @@
 <body>
 <h1>Fancy Coffee Co.</h1>
 <h2>Purveyors of fine coffees</h2>
-<p>Search or filter to see our offered styles</p>
+<p>Search by name & filter by roast to see our offered styles</p>
 <form>
-    <label for="roast-selection"></label>
-    <select id="roast-selection">
-        <option>Select roast</option>
-        <option>light</option>
-        <option>medium</option>
-        <option>dark</option>
-    </select>
+<!--    <label for="roast-selection"></label>-->
+<!--    <select id="roast-selection">-->
+<!--        <option>Select roast</option>-->
+<!--        <option>light</option>-->
+<!--        <option>medium</option>-->
+<!--        <option>dark</option>-->
+<!--    </select>-->
+    <section id="roast-selection">
+        <div>
+            <input type="checkbox" id="light" name="roast" value="light" checked>
+            <label for="light">Light</label>
+        </div>
+        <div>
+            <input type="checkbox" id="medium" name="roast" value="medium" checked>
+            <label for="medium">Medium</label>
+        </div>
+        <div>
+            <input type="checkbox" id="dark" name="roast" value="dark" checked>
+            <label for="dark">Dark</label>
+        </div>
+    </section>
     <label for="coffeeSearch"></label>
     <input type="search" id="coffeeSearch" name="q" placeholder="Enter your search here">
-    <input id="submit" type="submit" />
+<!--    <input id="submit" type="submit" />-->
 </form>
 
 <section id="coffees">
