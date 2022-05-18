@@ -25,14 +25,22 @@ function updateCoffees(e) {
 }
 
 function filterSearch(){
-    let isLight = document.querySelector("[name='roast']").checked;
-    let isMedium = document.querySelector("[name='roast']").checked;
-    let isDark = document.querySelector('#dark').checked
+    let isLight = document.querySelector("#light").checked;
+    let isMedium = document.querySelector("#medium").checked;
+    let isDark = document.querySelector('#dark').checked;
+    let roastNum = isLight + isMedium + isDark;
     console.log(isLight);
     console.log(isMedium);
     console.log(isDark);
-    if (document.querySelector('#light').checked === true){
-
+    console.log(roastNum);
+    switch (roastNum){
+        case 3: console.log('All the roasts');
+        break
+        case 2: console.log('Some roasts');
+        break
+        case 1: console.log('A roast');
+        break
+        default: console.log('No roasts')
     }
 }
 

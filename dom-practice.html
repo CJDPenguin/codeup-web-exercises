@@ -26,6 +26,7 @@
 </div>
 <div class="question">
   <h1>Question 1</h1>
+  <label for="color"></label>
   <input type="color" id="color">
   <button type="button" id="changeColor">Button!</button>
 </div>
@@ -66,15 +67,21 @@
 <script>
     "use strict"
     let userColor = prompt("Please enter a color")
-
     function changeColor(color) {
       let divChange = document.getElementsByClassName('question');
       divChange[0].style.color = color;
     }
-
     changeColor(userColor);
   // TODO: Prompt the user to enter a color. Select the first div with the class of "question", and change the font color to the users input.
-
+    // Use an Event listener to trigger when the button is clicked.
+    //         Use the value to change the background-color of the page to match the user's input value.
+    //         example of input: "#00000", "black", "#FF00FF"
+    let colorButton = document.querySelector('#changeColor');
+    colorButton.addEventListener('click', function() {
+      let bgColor = document.querySelector('#color').value;
+      let background = document.getElementsByTagName('body')[0];
+      background.style.backgroundColor = bgColor;
+    })
 </script>
 </body>
 </html>
