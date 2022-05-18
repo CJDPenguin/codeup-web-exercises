@@ -25,6 +25,7 @@ function updateCoffees(e) {
 }
 
 function filterSearch(){
+    let searchTerm = searchInput.value.toLowerCase();
     let isLight = document.querySelector("#light").checked;
     let isMedium = document.querySelector("#medium").checked;
     let isDark = document.querySelector('#dark').checked;
@@ -35,15 +36,20 @@ function filterSearch(){
     console.log(roastNum);
     switch (roastNum){
         case 3: console.log('All the roasts');
+        list.innerHTML = renderCoffees(coffees.filter(coffee => coffee.name.toLowerCase().includes(searchTerm)));
         break
-        case 2: console.log('Some roasts');
+        default: console.log('Some roasts');
+        list.innerHTML = renderCoffees(coffees.filter(coffee => (isLight === true || isMedium === true || isDark === true) && coffee.name.toLowerCase().includes(searchTerm)));
         break
-        case 1: console.log('A roast');
-        break
-        default: console.log('No roasts')
+        // case 1: console.log('A roast');
+        // break
+        // default: console.log('No roasts')
     }
 }
-
+// function coffeeSearch(){
+//     let searchTerm = searchInput.value.toLowerCase();
+//     section.innerHTML = renderCoffees(coffeeList.filter(coffee => (roastSelection.value === 'all' || coffee.roast === roastSelection.value) && coffee.name.toLowerCase().includes(searchTerm)));
+// }
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
@@ -62,10 +68,12 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
-var tbody = document.querySelector('#coffees');
+var list = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
-var roastSelection = document.querySelector('#roast-selection');
+let roastSelection = document.querySelector("[name= 'roast']");
+let searchInput = document.querySelector('#coffeeSearch');
 
-tbody.innerHTML = renderCoffees(coffees);
+list.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
+roastSelection.addEventListener('change',filterSearch);
