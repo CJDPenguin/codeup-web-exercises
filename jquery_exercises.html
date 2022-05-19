@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>jQuery Fun</title>
 </head>
 <body>
 <h1 class="heading codeup">Let's learn some jQuery!</h1>
@@ -40,8 +40,10 @@
         // $('h1, p, ol').css('background', '#ef1');
         // alert($('h1').html());
         $('h1').click(function(){
-            let randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
-            $(this).css('background', randomColor);
+            let bgColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+            let textColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+            $(this).css('background', bgColor);
+            $(this).css('color', textColor);
         })
         $('p').dblclick(function(){
             $(this).css('font-size', '18px');
