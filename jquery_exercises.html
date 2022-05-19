@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 class="heading codeup">Let's learn some jQuery!</h1>
+<h2 id="sub" class="heading">It's gonna be fun</h2>
+<p id="intro codeup">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto cum eos id illum impedit incidunt neque nobis pariatur provident quos saepe, temporibus. Aperiam earum facere ipsam odio possimus quis veritatis!</p>
+<ol class="list">
+    <li>First</li>
+    <li>Second</li>
+    <li>Third</li>
+    <li>Fourth</li>
+    <li>Fifth</li>
+</ol>
+<div class="wrapper codeup">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci aspernatur autem eos eum in itaque iusto nemo nesciunt nostrum nulla provident saepe similique tempore ut velit, veritatis voluptates voluptatibus?</p>
+    <ul class="list">
+        <li>Hey</li>
+        <li>you</li>
+        <li>why</li>
+        <li>are</li>
+        <li>you</li>
+        <li>doing</li>
+        <li>all</li>
+        <li>this</li>
+        <li>?</li>
+    </ul>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+    $(function(){
+        // alert("Loading done, master.")
+        // alert($('#sub').html());
+        // alert($('#intro').html());
+        // $('.codeup').css('border', '1px solid #f00')
+        // $('li').css('font-size', '20px')
+        // $('h1, p, ol').css('background', '#ef1');
+        // alert($('h1').html());
+        $('h1').click(function(){
+            let randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+            $(this).css('background', randomColor);
+        })
+        $('p').dblclick(function(){
+            $(this).css('font-size', '18px');
+        })
+        $('li').hover(function(){
+            $(this).css('color', '#F00');
+        },
+            function(){
+                $(this).css('color', '#000');
+            })
+    })
+</script>
+</body>
+</html>
