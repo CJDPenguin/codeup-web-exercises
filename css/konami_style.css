@@ -1,0 +1,25 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Syne Mono', monospace;
+}
+h1{
+    font-family: 'Major Mono Display', monospace;
+    text-align: center;
+}
+.controller{
+    height: 40vw;
+    width: 80vw;
+    margin: auto;
+    display: flex;
+
+}
+.stick{
+
+
+}
+.button{
+
+}
+.button:hover{
+
+}

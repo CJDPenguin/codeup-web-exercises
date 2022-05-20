@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Konami Code</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Syne+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/konami_style.css">
+</head>
+<body>
+<h1>Konami Code</h1>
+<section class="controller">
+  <div class="stick"></div>
+  <div class="button">A</div>
+  <div class="button">B</div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+  "use strict";
+  function konami(){
+    let input = '';
+    let code = '3838404037393739656613';
+
+    $(document).keyup(function(e){
+      input += e.keyCode;//adds the keycode to the input string;
+      let check = code.substring(0,input.length);// creates a check substring to compare the input to the code;
+      //if the input isn't the same as the check, resets the input and check fields;
+      if(input !== check){
+        input = '';
+        check = '';
+        console.log('reset');
+      }
+      //if the last key hit was return and the input is the same as the check then execute & reset the input & check variables;
+      if(input.substring(input.length - 2, input.length) === '13' && input === check){
+        alert('Can we do it? Yes, we can!');
+        input = '';
+        check = '';
+      }
+      // console.log(input);
+      // console.log(check);
+    });
+  }
+</script>
+<script>
+  "use strict";
+  // $(document).keyup(function(event){
+  //   console.log(event.keyCode);
+  // });
+  $(document).ready(function(){
+    konami();
+     });
+</script>
+</body>
+</html>
