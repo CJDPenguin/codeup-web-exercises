@@ -2,11 +2,37 @@
     box-sizing: border-box;
     font-family: 'Syne Mono', monospace;
 }
+html{
+    height: 100%;
+    background: #000000;
+}
+video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    filter: blur(2px);
+}
+.container {
+    position: fixed;
+    width: 100%;
+}
 h1{
     font-family: 'Major Mono Display', monospace;
     text-align: center;
+    color: #E9AC02;
+    text-shadow: 2px 2px 2px #B98700;
+    font-size: 5em;
 }
-.controller{
+a {
+    transition: all 0.5s ease-out;
+}
+a:hover,
+a:focus {
+    color: #FF0000;
+}
+#controller{
     height: 40vw;
     width: 80vw;
     margin: auto;
@@ -17,46 +43,136 @@ h1{
     background-repeat: no-repeat;
     background-size: contain;
 }
-.d-pad{
+#d-pad{
     height: 15vw;
     width: 15vw;
     grid-column-start:2;
     grid-row-start:4;
-    border: white 5px solid;
+    /*border: 5px red solid;*/
     border-radius: 50%;
     display:grid;
-    grid-template-columns: calc(1/3)% calc(1/3)% calc(1/3)% ;
-    grid-template-rows: calc(1/3)% calc(1/3)% calc(1/3)% ;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 33% 33% 33%;
 }
-.select{
+#d-pad>div{
+    height: 5vw;
+    width: 5vw;
+    /*border: 5px red solid;*/
+    border-radius: 50%;
+}
+.button{
+
+}
+.button:hover{
+    background: yellowgreen;
+    border: none;
+    box-shadow: 1vw 0 1vw green;
+}
+.button:active{
+    background: orangered;
+    box-shadow: 1vw 0 1vw indianred;
+}
+#d-pad>div:nth-child(1){
+    grid-column-start: 2;
+}
+#d-pad>div:nth-child(2){
+    grid-column-start: 3;
+    grid-row-start: 2
+}
+#d-pad>div:nth-child(3){
+    grid-column-start: 2;
+    grid-row-start: 3
+}
+#d-pad>div:nth-child(4){
+    grid-row-start: 2
+}
+#select{
     height: 3vw;
     width: 7vw;
-    border: red 5px solid;
+    /*border: 5px red solid;*/
     border-radius: 2.5vw;
     grid-column-start: 5;
     grid-row-start: 7;
 }
-.start{
+#start{
     height: 3vw;
     width: 7vw;
-    border: red 5px solid;
+    /*border: 5px red solid;*/
     border-radius: 2.5vw;
     grid-column-start: 7;
     grid-row-start: 7;
 }
-.b{
+#b{
     height: 8vw;
     width: 8vw;
-    border: yellowgreen 5px solid;
+    /*border: 5px red solid;*/
     border-radius: 50%;
     grid-column-start: 9;
     grid-row-start: 6;
 }
-.a{
+#a{
     height: 8vw;
     width: 8vw;
-    border: yellowgreen 5px solid;
+    /*border: 5px red solid;*/
     border-radius: 50%;
     grid-column-start: 10;
     grid-row-start:6;
+}
+
+@media screen and (max-width: 900px){
+    #controller{
+        height: 80vw;
+        width: 40vw;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+        grid-template-rows: 10% 10% 10% 7% 12% 5% 10% 10% 10% 10%;
+        background-image: url("../img/wii-mote.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    #d-pad {
+        height: 15vw;
+        width: 15vw;
+        grid-column-start: 4;
+        grid-row-start: 2;
+        /*border: 5px red solid;*/
+        border-radius: 50%;
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        grid-template-rows: 33% 33% 33%;
+    }
+    #select{
+        height: 3vw;
+        width: 3vw;
+        /*border: 5px red solid;*/
+        border-radius: 2.5vw;
+        grid-column-start: 4;
+        grid-row-start: 6;
+    }
+    #start{
+        height: 3vw;
+        width: 3vw;
+        /*border: 5px red solid;*/
+        border-radius: 2.5vw;
+        grid-column-start: 7;
+        grid-row-start: 6;
+    }
+    #b{
+        height: 4vw;
+        /*border: 5px red solid;*/
+        border-radius: 50%;
+        grid-column-start: 5;
+        grid-column-end:6;
+        grid-row-start: 10;
+    }
+    #a{
+        height: 4vw;
+        /*border: 5px red solid;*/
+        border-radius: 50%;
+        grid-column-start: 5;
+        grid-column-end:6;
+        grid-row-start:9;
+    }
 }
