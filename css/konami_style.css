@@ -60,9 +60,6 @@ a:focus {
     /*border: 5px red solid;*/
     border-radius: 50%;
 }
-.button{
-
-}
 .button:hover{
     background: yellowgreen;
     border: none;
@@ -71,6 +68,11 @@ a:focus {
 .button:active{
     background: orangered;
     box-shadow: 1vw 0 1vw indianred;
+}
+.shiny{
+    background: yellowgreen;
+    border: none;
+    box-shadow: 1vw 0 1vw green;
 }
 #d-pad>div:nth-child(1){
     grid-column-start: 2;
@@ -125,8 +127,8 @@ a:focus {
         width: 40vw;
         margin: auto;
         display: grid;
-        grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
-        grid-template-rows: 10% 10% 10% 7% 12% 5% 10% 10% 10% 10%;
+        grid-template-columns: 32% 12% 16% auto;
+        grid-template-rows: 10% 38% 24% 8%;
         background-image: url("../img/wii-mote.svg");
         background-repeat: no-repeat;
         background-size: cover;
@@ -135,7 +137,7 @@ a:focus {
     #d-pad {
         height: 15vw;
         width: 15vw;
-        grid-column-start: 4;
+        grid-column-start: 2;
         grid-row-start: 2;
         /*border: 5px red solid;*/
         border-radius: 50%;
@@ -148,31 +150,31 @@ a:focus {
         width: 3vw;
         /*border: 5px red solid;*/
         border-radius: 2.5vw;
-        grid-column-start: 4;
-        grid-row-start: 6;
+        grid-column-start: 2;
+        grid-row-start: 3;
     }
     #start{
         height: 3vw;
         width: 3vw;
         /*border: 5px red solid;*/
         border-radius: 2.5vw;
-        grid-column-start: 7;
-        grid-row-start: 6;
+        grid-column-start: 4;
+        grid-row-start: 3;
     }
     #b{
-        height: 4vw;
+        height: 5vw;
+        width: 5vw;
         /*border: 5px red solid;*/
         border-radius: 50%;
-        grid-column-start: 5;
-        grid-column-end:6;
-        grid-row-start: 10;
+        grid-column-start: 3;
+        grid-row-start: 5;
     }
     #a{
-        height: 4vw;
+        height: 5vw;
+        width: 5vw;
         /*border: 5px red solid;*/
         border-radius: 50%;
-        grid-column-start: 5;
-        grid-column-end:6;
-        grid-row-start:9;
+        grid-column-start: 3;
+        grid-row-start:4;
     }
 }

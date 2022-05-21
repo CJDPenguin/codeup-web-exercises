@@ -10,12 +10,14 @@
     <script src="https://kit.fontawesome.com/3496e81044.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<!--background as video-->
 <video playsinline autoplay muted loop id="bgvid">
     <source src="img/code-matrix.mp4" type="video/mp4">
 </video>
+<!--puts everything inside of container to adjust to screen size-->
 <div class="container">
+<!--    cheater gif plays when code is entered-->
 <div class='cheater' style="display: none; width:75%;height:0;padding-bottom:56%;position:relative; margin: auto;"><a class="close" href="#"><i class="fa-solid fa-xmark"></i></a><iframe src="https://giphy.com/embed/u5sgL5pks5JXKHcVZo" width="100%" height="100%" style="position:absolute;" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a class='cheater' href="https://giphy.com/gifs/nickelodeon-cartoons-nicktoons-middlemost-post-u5sgL5pks5JXKHcVZo" style="display: none">via GIPHY</a></p>
-<!--<div class='really' style="width:75%; margin:auto; display: none;"><div class='really' style="height:0;padding-bottom:50%;position:relative;width:100%; display:none;"><iframe allowfullscreen="" frameBorder="0" height="100%" src="https://giphy.com/embed/RjwyUowSkLAR9nsfkP/video" style="left:0;position:absolute;top:0; display:none;" class='really' width="100%"></iframe></div></div>-->
 <h1>Konami Code</h1>
 <section id="controller">
   <section id="d-pad">
@@ -31,129 +33,9 @@
 </section>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="js/konami_jQuery.js"></script>
 <script>
   "use strict";
-  let input = '';
-  let code = '3838404037393739656613';
-  function konami(){
-
-    $(document).keyup(function(e){
-      input += e.keyCode;//adds the keycode to the input string;
-      let check = code.substring(0,input.length);// creates a check substring to compare the input to the code;
-      //if the input isn't the same as the check, resets the input and check fields;
-      if(input !== check){
-        input = '';
-        check = '';
-        console.log('reset');
-      }
-      //if the last key hit was return and the input is the same as the check then execute & reset the input & check variables;
-      if(input.substring(input.length - 2, input.length) === '13' && input === check){
-        $('.cheater').css('display', 'block')
-          $('html').css('filter', 'invert(100%)')
-          $('.close').click(function(){
-              $('.cheater').css('display', 'none')
-              $('html').css('filter', 'none')
-          })
-        input = '';
-        check = '';
-      }
-      // console.log(input);
-      // console.log(check);
-    });
-  }
-  function konomiButton(){
-    $('.up').click(function(){input += 38;});
-    $('.right').click(function(){input += 39;});
-    $('.down').click(function (){input += 40;});
-    $('.left').click(function(){input += 37;})
-    $('#a').click(function(){input += 65;})
-    $('#b').click(function(){input += 66;})
-    $('#start').click(function(){
-      input += 13;
-      if(input === code){
-          $('.cheater').css('display', 'block')
-          $('html').css('filter', 'invert(100%)')
-          $('.close').click(function() {
-              $('.cheater').css('display', 'none')
-              $('html').css('filter', 'none')
-          })
-        input = '';
-      }
-      input = '';
-    })
-  }
-  function shinyButtons(){
-      $(document).keydown(function(e){
-          if (e.key === 'a') {
-              $('#a').css({'background': 'yellowgreen', 'box-shadow': '1vw 0 1vw green'})
-              $(document).keyup(function(){
-                  $('#a').css({'background': 'none', 'box-shadow': 'none'})
-              })
-          }
-      })
-      $(document).keydown(function(e){
-          if (e.key === 'b') {
-              $('#b').css({'background': 'yellowgreen', 'box-shadow': '1vw 0 1vw green'})
-              $(document).keyup(function(){
-                  $('#b').css({'background': 'none', 'box-shadow': 'none'})
-              })
-          }
-      })
-      $(document).keydown(function(e){
-          if (e.key === 'ArrowUp') {
-              $('.up').css({'background': 'yellowgreen', 'box-shadow': '1vw 0 1vw green'})
-              $(document).keyup(function(){
-                  $('.up').css({'background': 'none', 'box-shadow': 'none'})
-              })
-          }
-      })
-      $(document).keydown(function(e){
-          if (e.key === 'ArrowRight') {
-              $('.right').css({'background': 'yellowgreen', 'box-shadow': '1vw 0 1vw green'})
-              $(document).keyup(function(){
-                  $('.right').css({'background': 'none', 'box-shadow': 'none'})
-              })
-          }
-      })
-      $(document).keydown(function(e){
-          if (e.key === 'ArrowDown') {
-              $('.down').css({'background': 'yellowgreen', 'box-shadow': '1vw 0 1vw green'})
-              $(document).keyup(function(){
-                  $('.down').css({'background': 'none', 'box-shadow': 'none'})
-              })
-          }
-      })
-      $(document).keydown(function(e){
-          if (e.key === 'ArrowLeft') {
-              $('.left').css({'background': 'yellowgreen', 'box-shadow': '1vw 0 1vw green'})
-              $(document).keyup(function(){
-                  $('.left').css({'background': 'none', 'box-shadow': 'none'})
-              })
-          }
-      })
-      $(document).keydown(function(e){
-          if (e.key === 'Enter') {
-              $('#start').css({'background': 'yellowgreen', 'box-shadow': '1vw 0 1vw green'})
-              $(document).keyup(function(){
-                  $('#start').css({'background': 'none', 'box-shadow': 'none'})
-              })
-          }
-      })
-      $(document).keydown(function(e){
-          if (e.key === 'Meta') {
-              $('#select').css({'background': 'yellowgreen', 'box-shadow': '1vw 0 1vw green'})
-              $(document).keyup(function(){
-                  $('#select').css({'background': 'none', 'box-shadow': 'none'})
-              })
-          }
-      })
-  }
-</script>
-<script>
-  "use strict";
-  // $(document).keyup(function(event){
-  //   console.log(event.keyCode);
-  // });
   $(document).ready(function(){
     konami();
     konomiButton();
