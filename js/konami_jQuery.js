@@ -55,7 +55,7 @@ function shinyButtons(){
     })
     $(document).keydown(function(e){
         if (e.key === 'b') {
-            $('#b').removeClass('button').addClass('shiny')
+            $('#b').removeClass('button').addClass('shiny');
             $(document).keyup(function(){
                 $('#b').removeClass('shiny').addClass('button');
             })

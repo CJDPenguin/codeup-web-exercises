@@ -100,6 +100,36 @@
         document.querySelector('#todo').value = '';
       }
     })
+    // DOM Practice Question #3
+
+    // Part 1:
+    // Every 1 seconds take the H1 tags and change the font size to 10px.
+    // If its already 10px set it to 20px;
+
+    // Part 2:
+    // Add a toggle button with id of "toggleH1"
+    // use that button to stop and restart the h1 tags from changing size.
+    let headingIntervalID = null;
+    function toggleHeadingSize() {
+      let headings = document.getElementsByTagName('h1');
+      for (let heading of headings) {
+        if (heading.style.fontSize !== '10px') {
+          heading.style.fontSize = '10px';
+        } else {
+          heading.style.fontSize = '20px';
+        }
+      }
+    }
+
+    let toggleButton = document.querySelector('#toggleH1');
+    toggleButton.addEventListener('click', function(){
+      if (headingIntervalID === null){
+        headingIntervalID = setInterval(toggleHeadingSize,1000);
+      } else {
+        clearInterval(headingIntervalID);
+        headingIntervalID = null;
+      }
+    })
 </script>
 </body>
 </html>
