@@ -1,0 +1,40 @@
+*{
+    box-sizing: border-box;
+}
+html{
+    height: 100%;
+}
+body{
+    background: rgb(129, 97, 62, 75%) url("../img/keep-big-bend-national-park-wild.jpeg") no-repeat;
+}
+h1{
+    text-align: center;
+    color: whitesmoke;
+}
+dl{
+    background: rgba(129,97,62,75%);
+    border-radius: 25px;
+    padding: 25px;
+    color:antiquewhite;
+}
+dt{
+    font-weight: bold;
+    text-decoration: underline;
+    padding: 5px;
+}
+.invisible{
+    visibility: hidden;
+}
+a{
+    color: lightskyblue;
+}
+a:hover{
+    color: whitesmoke;
+}
+a:active{
+    background: #3B94D9;
+    color: whitesmoke;
+}
+a:visited{
+    color: dimgrey;
+}

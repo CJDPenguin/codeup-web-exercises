@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/jquery_faq.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <title>jQuery FAQ</title>
+</head>
+<body>
+<h1>National Parks in Texas</h1>
+<dl>
+    <dt>Alibates Flint Quarries</dt><dd class="invisible">National Monument</dd>
+    <dt>Amistad</dt><dd class="invisible">National Recreation Area</dd>
+    <dt>Big Bend</dt><dd class="invisible">National Park</dd>
+    <dt>Big Thicket</dt><dd class="invisible">National Preserve</dd>
+    <dt>Chamizal</dt><dd class="invisible">National Memorial</dd>
+    <dt>El Camino Real de los Tejas</dt><dd class="invisible">National Historic Trail</dd>
+    <dt>El Camino Real de Tierra Adentro</dt><dd class="invisible">National Historic Trail</dd>
+    <dt>Fort Davis</dt><dd class="invisible">National Historic Site</dd>
+    <dt>Guadalupe Mountains</dt><dd class="invisible">National Park</dd>
+    <dt>Lake Meredith</dt><dd class="invisible">National Recreation Area</dd>
+    <dt>Lyndon B Johnson</dt><dd class="invisible">National Historical Park</dd>
+    <dt>Padre Island</dt><dd class="invisible">National Seashore</dd>
+    <dt>Palo Alto Battlefield</dt><dd class="invisible">National Historic Park</dd>
+    <dt>Rio Grande</dt><dd class="invisible">Wild & Scenic River</dd>
+    <dt>San Antonio Missions</dt><dd class="invisible">National Historic Park</dd>
+    <dt>Waco Mammoth</dt><dd class="invisible">National Monument</dd>
+    <button class="detailToggle" id="button">View Details</button>
+</dl>
+<p><a href="https://www.nps.gov/state/tx/index.htm">NPS Source Site</a></p>
+<script>
+    $(document).ready(function(){
+        $('#button').click(function (e){
+            e.preventDefault();
+            $('dd').toggleClass('invisible');
+        })
+        $('dt').click(function(){
+            $(this).css('background', 'rgba(255,170,0,80%)');
+        }).dblclick(function(){
+            $(this).css('background', 'none');
+        })
+    })
+</script>
+</body>
+</html>
