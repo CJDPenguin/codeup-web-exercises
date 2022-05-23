@@ -5,7 +5,9 @@ html{
     height: 100%;
 }
 body{
+    height: 100% !important;
     background: rgb(129, 97, 62, 75%) url("../img/keep-big-bend-national-park-wild.jpeg") no-repeat;
+    background-size: cover;
 }
 h1{
     text-align: center;
@@ -37,4 +39,42 @@ a:active{
 }
 a:visited{
     color: dimgrey;
+}
+.highlighted{
+    background: rgba(255,255,159,60%);
+}
+.bolded{
+    font-weight: bold;
+}
+.blue{
+    color: blue;
+}
+.art-gallery{
+    display: flex;
+    flex-wrap: wrap;
+    height: 25vw;
+    justify-content: space-evenly;
+}
+.painting{
+    width: 30%;
+    margin: 20px 10px;
+}
+.starryNight{
+    background-image: url("../img/the-starry-night-over-the-rhone.jpeg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.tsunami{
+    background-image: url("../img/Tsunami-by-hokusai.jpeg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.schoolAthens{
+    background-image: url("../img/Escola-de-atenas.jpeg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.mover{
+    width:30%;
+    height: 40px;
 }
