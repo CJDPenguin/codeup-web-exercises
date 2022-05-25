@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo&family=Pacifico&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3496e81044.js" crossorigin="anonymous"></script>
+    <title>Online Store</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            font-family: 'Arvo', serif;
+        }
+        body{
+            background-image: url("img/brick_background.jpg");
+            filter: ;
+            background-color: #000;
+            color: #fff
+        }
+        @keyframes pulsate {
+            100% {
+                /* Larger blur radius */
+                text-shadow:
+                        0 0 4px #fff,
+                        0 0 11px #fff,
+                        0 0 19px #fff,
+                        0 0 40px #DECD08,
+                        0 0 80px #DECD08,
+                        0 0 90px #DECD08,
+                        0 0 100px #DECD08,
+                        0 0 150px #DECD08;
+            }
+            0% {
+                /* Smaller blur radius */
+                text-shadow:
+                        0 0 2px #fff,
+                        0 0 4px #fff,
+                        0 0 6px #fff,
+                        0 0 10px #DECD08,
+                        0 0 45px #DECD08,
+                        0 0 55px #DECD08,
+                        0 0 70px #DECD08,
+                        0 0 80px #DECD08;
+            }
+        }
+        h1{
+            text-align: center;
+            font-family: 'Pacifico', cursive;
+            background-color: #302D2C;
+            border: 0.2rem solid #fff;
+            border-radius: 2rem;
+            padding: 0.4em;
+            text-shadow: 0 0 7px #fff,
+                        0 0 10px #fff,
+                        0 0 21px #fff,
+                        0 0 42px #DECD08,
+                        0 0 82px #DECD08,
+                        0 0 92px #DECD08,
+                        0 0 102px #DECD08,
+                        0 0 151px #DECD08;
+            box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 2rem #DECD08,
+            0 0 0.8rem #DECD08,
+            0 0 2.8rem #DECD08,
+            inset 0 0 1.3rem #DECD08;
+            animation: pulsate 3s infinite alternate;
+        }
+        table{
+            border: 5px solid #fff;
+            border-radius: 2rem;
+            padding: 3px;
+            margin: auto;
+            background-color: #302D2C;
+            box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 2rem #DECD08,
+            0 0 0.8rem #DECD08,
+            0 0 2.8rem #DECD08,
+            inset 0 0 1.3rem #DECD08;
+        }
+        td{
+            padding: 1rem 2rem;
+        }
+        @keyframes rotate {
+            0%{
+                transform: translateX(35rem) translateY(-3rem) rotateZ(0deg);
+            }
+            100%{
+                transform: translateX(35rem) translateY(-3rem) rotateZ(180deg);
+            }
+
+        }
+        button{
+            position: absolute;
+            transform: translateX(35rem) translateY(-3rem);
+            color: #fff;
+            background-color: transparent;
+            border: none;
+        }
+        button:hover{
+            animation: rotate 1s infinite;
+        }
+    </style>
+</head>
+<body>
+
+<h1>My Tool Store</h1>
+
+<table id="products">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Categories</th>
+        </tr>
+    </thead>
+    <tbody id="insertProducts"></tbody>
+</table>
+<button id="refreshInventory"><i class="fa-solid fa-arrows-rotate"></i></button>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script>
+(function() {
+    "use strict";
+    // TODO: Create an AJAX GET request for the file under data/inventory.json
+
+    // TODO: Take the data from inventory.json and append it to the products table
+    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+    //             its contents and fields
+    //       HINT: You will want to target #insertProducts for your new HTML elements
+    function getInventory() {
+        $('#insertProducts').empty();
+        $.get("data/inventory.json").done(function (tools) {
+            tools.forEach(function (tool) {
+                let html = "<tr><td>" + tool.title + "</td><td>" + tool.quantity + "</td><td>" + tool.price + "</td><td>" + tool.categories + "</td></tr>"
+                $('#insertProducts').append(html);
+            })
+        })
+    }
+    getInventory();
+    $('#refreshInventory').click(getInventory);
+})();
+</script>
+
+</body>
+</html>
