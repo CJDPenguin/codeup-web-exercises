@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css' rel='stylesheet' />
+    <title>Mapbox</title>
+</head>
+<body>
+<div id='map' style='width: 80vw; height: 80vw; margin: auto'></div>
+<script src="js/keys.js"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js'></script>
+<script src="js/geocode-utils.js"></script>
+<script>
+    mapboxgl.accessToken = MAPBOX_KEY;
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/streets-v11', // style URL
+        center: [-77.05, 38.86], // starting position [lng, lat]
+        zoom: 11// starting zoom
+    });
+    const PLACES = [
+        {
+            name: "Zento",
+            location: {
+                lat: 38.81189841978846,
+                lng: -77.04529907365992
+            },
+            cuisine: "Japanese",
+            best: "Katsu don"
+        }, {
+            name: "Mattie's & Eddie's Irish Pub",
+            location: {
+                lat: 38.86495716468992,
+                lng: -77.06219852323635
+            },
+            cuisine: "Irish",
+            best: "Shepherd's Pie"
+        }, {
+            name: "District Taco",
+            location: {
+                lat: 38.89900345148808,
+                lng: -77.02986045275088
+            },
+            cuisine: "Mexican",
+            best: "Tacos al Pastor"
+        }
+    ]
+
+    PLACES.forEach(function(place){
+        new mapboxgl.Marker().setLngLat(
+            [place.location.lng, place.location.lat]
+        ).setPopup(
+            new mapboxgl.Popup({offset: 25}).setHTML("<h3>" + place.name + "</h3><p>" + place.cuisine + "<br>" + place.best + "</p>")
+        )
+        .addTo(map);
+    })
+    // });
+</script>
+</body>
+</html>
