@@ -19,7 +19,7 @@
 </head>
 <body>
 <label for="screen"></label>
-<textarea id="screen"></textarea>
+<textarea id="screen" readonly="readonly"></textarea>
     <section id="inputPad">
         <div class="button" id="one">1</div>
         <div class="button" id="two">2</div>
@@ -32,14 +32,18 @@
         <div class="button" id="nine">9</div>
         <div class="button" id="zero">0</div>
         <div class="button" id="decimal">.</div>
-        <div class="button" id="negative">-</div>
+        <div class="button" id="negative">+/-</div>
+        <div class="button" id="plus">+</div>
+        <div class="button" id="minus">-</div>
+        <div class="button" id="multiply">x</div>
+        <div class="button" id="divide">/</div>
         <div class="button" id="clear">C</div>
         <div class="button" id="equals">=</div>
     </section>
 <script>
     (function(){
         "use strict"
-//Establish buttons and fields as variables to be manipulated
+//Establish buttons and variables to be manipulated
         let num1 = document.querySelector("#one");
         let num2 = document.querySelector("#two");
         let num3 = document.querySelector("#three");
@@ -50,81 +54,113 @@
         let num8 = document.querySelector("#eight");
         let num9 = document.querySelector("#nine");
         let num0 = document.querySelector("#zero");
-        let decimal = document.querySelector("#decimal")
-        let negative = document.querySelector("#negative")
-        let clear = document.querySelector("#clear")
-        let equals = document.querySelector("#equals")
-
-        let screen = document.querySelector("#screen")
+        let decimal = document.querySelector("#decimal");
+        let negative = document.querySelector("#negative");
+        let clear = document.querySelector("#clear");
+        let equals = document.querySelector("#equals");
+        let plus = document.querySelector("#plus");
+        let minus = document.querySelector("#minus");
+        let multiply = document.querySelector("#multiply");
+        let divide = document.querySelector("#divide");
+        let screen = document.querySelector("#screen");
+        let numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "."]
+        let inputs = [];
+        let operators = [];
 //Has "C" button clear all results and inputs
         clear.addEventListener('click', function(){
             screen.value = '';
         })
 //Allows button be used to input into the screen
-        screen.addEventListener('focus', function(){
-            num1.addEventListener('click', function () {
-                screen.value += "1";
-            })
-            num2.addEventListener('click', function () {
-                screen.value += "2";
-            })
-            num3.addEventListener('click', function () {
-                screen.value += "3";
-            })
-            num4.addEventListener('click', function () {
-                screen.value += "4";
-            })
-            num5.addEventListener('click', function () {
-                screen.value += "5";
-            })
-            num6.addEventListener('click', function () {
-                screen.value += "6";
-            })
-            num7.addEventListener('click', function () {
-                screen.value += "7";
-            })
-            num8.addEventListener('click', function () {
-                screen.value += "8";
-            })
-            num9.addEventListener('click', function () {
-                screen.value += "9";
-            })
-            num0.addEventListener('click', function () {
-                screen.value += "0";
-            })
-            decimal.addEventListener('click', function () {
-                screen.value += ".";
-            })
-            negative.addEventListener('click', function () {
-                screen.value *= -1;
-            })
-        });
+        num1.addEventListener('click', function () {
+            screen.value += "1";
+        })
+        num2.addEventListener('click', function () {
+            screen.value += "2";
+        })
+        num3.addEventListener('click', function () {
+            screen.value += "3";
+        })
+        num4.addEventListener('click', function () {
+            screen.value += "4";
+        })
+        num5.addEventListener('click', function () {
+            screen.value += "5";
+        })
+        num6.addEventListener('click', function () {
+            screen.value += "6";
+        })
+        num7.addEventListener('click', function () {
+            screen.value += "7";
+        })
+        num8.addEventListener('click', function () {
+            screen.value += "8";
+        })
+        num9.addEventListener('click', function () {
+            screen.value += "9";
+        })
+        num0.addEventListener('click', function () {
+            screen.value += "0";
+        })
+        decimal.addEventListener('click', function () {
+            screen.value += ".";
+        })
+        negative.addEventListener('click', function () {
+            screen.value *= -1;
+        })
+        plus.addEventListener('click', function () {
+            inputs.push(screen.value);
+            operators.push("+");
+            screen.value = '';
+        })
+        minus.addEventListener('click', function () {
+            inputs.push(screen.value);
+            operators.push("-");
+            screen.value = '';
+        })
+        multiply.addEventListener('click', function () {
+            inputs.push(screen.value);
+            operators.push("*");
+            screen.value = '';
+        })
+        divide.addEventListener('click', function(){
+            inputs.push(screen.value);
+            operators.push("/");
+            screen.value = '';
+        })
+        document.addEventListener('keyup',function(e){
+            if (numbers.includes(e.key)){
+                screen.value += e.key;
+            }
+        })
 
 //executes basic calculations based on the selected operator at the time
-        function basicCalc(x, y){
-            let operator = (document.querySelector("#operator")).value;
-            screen.innerHTML = (function () {
-                switch (operator) {
-                    case "+":
-                        return x + y;
-                    case "-":
-                        return x - y;
-                    case "*":
-                        return x * y;
-                    case "/":
-                        return x / y;
-                }
-            })()
+        function basicCalc(){
+            console.log(inputs);
+            console.log(operators);
+            // let operator = (document.querySelector("#operator")).value;
+            // screen.innerHTML = (function () {
+            //     switch (operator) {
+            //         case "+":
+            //             return x + y;
+            //         case "-":
+            //             return x - y;
+            //         case "*":
+            //             return x * y;
+            //         case "/":
+            //             return x / y;
+            //     }
+            // })()
+
         }
         //Executes basicCalc function when the Enter key is pressed
         document.addEventListener('keyup',function(e){
             if(e.key === "Enter") {
-                basicCalc(parseFloat(input1.value), parseFloat(input2.value));
+                basicCalc();
             }
         })
         //Executes basicCalc function when the "=" button is clicked. DRYable?
         equals.addEventListener('click', function(){
-            basicCalc(parseFloat(input1.value), parseFloat(input2.value))
+            basicCalc()
         })
     })();
 </script>

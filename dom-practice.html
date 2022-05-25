@@ -130,6 +130,13 @@
         headingIntervalID = null;
       }
     })
+    // DOM Question #4
+
+    // When the mouse enters the content area of the 4th div with the class of "question", an alert should pop up
+    // that reads "CONGRATULATIONS ON YOUR NEW CRUISE!";
+    let popupArea = (document.getElementsByClassName('question')[4]);
+    popupArea.addEventListener('mouseenter', function(){ alert("CONGRATULATIONS ON YOUR NEW CRUISE!")})
+
 </script>
 </body>
 </html>
