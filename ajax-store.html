@@ -13,8 +13,8 @@
         }
         body{
             background-image: url("img/brick_background.jpg");
-            filter: ;
-            background-color: #000;
+            background-blend-mode: multiply;
+            background-color: #555;
             color: #fff
         }
         @keyframes pulsate {
@@ -69,7 +69,7 @@
         table{
             border: 5px solid #fff;
             border-radius: 2rem;
-            padding: 3px;
+            padding: 1rem;
             margin: auto;
             background-color: #302D2C;
             box-shadow: 0 0 .2rem #fff,
@@ -87,7 +87,7 @@
                 transform: translateX(35rem) translateY(-3rem) rotateZ(0deg);
             }
             100%{
-                transform: translateX(35rem) translateY(-3rem) rotateZ(180deg);
+                transform: translateX(35rem) translateY(-3rem) rotateZ(360deg);
             }
 
         }
@@ -100,6 +100,45 @@
         }
         button:hover{
             animation: rotate 1s infinite;
+        }
+        #icons{
+            display: flex;
+            justify-content: space-between;
+            padding: 2rem;
+            font-size: 2em;
+        }
+        @keyframes flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100%{
+                text-shadow: 0 0 7px #fff,
+                0 0 10px #fff,
+                0 0 21px #fff,
+                0 0 42px #DECD08,
+                0 0 82px #DECD08,
+                0 0 92px #DECD08,
+                0 0 102px #DECD08,
+                0 0 151px #DECD08;
+            }
+            20%, 24%, 55%{
+                text-shadow: none;
+            }
+        }
+        a{
+            color: #FFF57B;
+        }
+        a:hover{
+            color: #fff;
+            text-shadow: 0 0 7px #fff,
+            0 0 10px #fff,
+            0 0 21px #fff,
+            0 0 42px #DECD08,
+            0 0 82px #DECD08,
+            0 0 92px #DECD08,
+            0 0 102px #DECD08,
+            0 0 151px #DECD08;
+            animation: flicker 1.5s infinite alternate;
+        }
+        a:active{
+            color: #000;
         }
     </style>
 </head>
@@ -119,6 +158,18 @@
     <tbody id="insertProducts"></tbody>
 </table>
 <button id="refreshInventory"><i class="fa-solid fa-arrows-rotate"></i></button>
+<section id="icons">
+    <div id="pay">
+        <a href="#"><i class="fa-brands fa-paypal"></i></a>
+        <a href="#"><i class="fa-brands fa-amazon-pay"></i></a>
+        <a href="#"><i class="fa-brands fa-apple-pay"></i></a>
+        <a href="#"><i class="fa-brands fa-google-pay"></i></a>
+    </div>
+    <div id="social">
+        <a href="#"><i class="fa-brands fa-facebook-square"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter-square"></i></a>
+    </div>
+</section>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
 <script>
@@ -134,7 +185,12 @@
         $('#insertProducts').empty();
         $.get("data/inventory.json").done(function (tools) {
             tools.forEach(function (tool) {
-                let html = "<tr><td>" + tool.title + "</td><td>" + tool.quantity + "</td><td>" + tool.price + "</td><td>" + tool.categories + "</td></tr>"
+                let html = "<tr><td>" + tool.title + "</td><td>" + tool.quantity + "</td><td>$" + tool.price + ".00</td><td>" + tool.categories + "</td></tr>"
+                html = html.replace('tool', '<i class="fa-solid fa-toolbox"></i>');
+                html = html.replace('powered', '<i class="fa-solid fa-plug"></i>');
+                html = html.replace('gas', '<i class="fa-solid fa-gas-pump"></i>');
+                html = html.replace('outdoor','<i class="fa-solid fa-cloud-sun"></i>');
+                html = html.replaceAll(',', ' ');
                 $('#insertProducts').append(html);
             })
         })
