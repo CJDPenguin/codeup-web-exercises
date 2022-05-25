@@ -44,6 +44,8 @@
             }
         }
         h1{
+            margin: 2rem auto 5rem auto;
+            width: 35rem;
             text-align: center;
             font-family: 'Pacifico', cursive;
             background-color: #302D2C;
@@ -84,16 +86,16 @@
         }
         @keyframes rotate {
             0%{
-                transform: translateX(35rem) translateY(-3rem) rotateZ(0deg);
+                transform: rotateZ(0deg);
             }
             100%{
-                transform: translateX(35rem) translateY(-3rem) rotateZ(360deg);
+                transform: rotateZ(360deg);
             }
 
         }
         button{
-            position: absolute;
-            transform: translateX(35rem) translateY(-3rem);
+            position: relative;
+            /*transform: translateX(35rem) translateY(-3rem);*/
             color: #fff;
             background-color: transparent;
             border: none;
@@ -153,11 +155,12 @@
             <th>Quantity</th>
             <th>Price</th>
             <th>Categories</th>
+            <th><button id="refreshInventory"><i class="fa-solid fa-arrows-rotate"></i></button></th>
         </tr>
     </thead>
     <tbody id="insertProducts"></tbody>
 </table>
-<button id="refreshInventory"><i class="fa-solid fa-arrows-rotate"></i></button>
+
 <section id="icons">
     <div id="pay">
         <a href="#"><i class="fa-brands fa-paypal"></i></a>
@@ -185,7 +188,7 @@
         $('#insertProducts').empty();
         $.get("data/inventory.json").done(function (tools) {
             tools.forEach(function (tool) {
-                let html = "<tr><td>" + tool.title + "</td><td>" + tool.quantity + "</td><td>$" + tool.price + ".00</td><td>" + tool.categories + "</td></tr>"
+                let html = "<tr><td>" + tool.title + "</td><td>" + tool.quantity + "</td><td>$" + (tool.price - 1) + ".99</td><td>" + tool.categories + "</td></tr>"
                 html = html.replace('tool', '<i class="fa-solid fa-toolbox"></i>');
                 html = html.replace('powered', '<i class="fa-solid fa-plug"></i>');
                 html = html.replace('gas', '<i class="fa-solid fa-gas-pump"></i>');
