@@ -7,6 +7,16 @@
 </head>
 <body>
 <div id='map' style='width: 80vw; height: 80vw; margin: auto'></div>
+<form> Zoom Level:
+    <label for="five">5x</label>
+    <input type="radio" name="zoom" id="five" value="5">
+    <label for="fifteen">15x</label>
+    <input type="radio" name="zoom" id="fifteen" value="15">
+    <label for="twenty">20x</label>
+    <input type="radio" name="zoom" id="twenty" value="20">
+    <label for="default">Default</label>
+    <input type="radio" name="zoom" id="default" value="11" checked="checked">
+</form>
 <script src="js/keys.js"></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js'></script>
 <script src="js/geocode-utils.js"></script>
@@ -54,7 +64,27 @@
         )
         .addTo(map);
     })
-    // });
+
+    function zoom5(){
+        map.zoomTo(5,{duration: 2000,
+            offset: [100, 50]});
+    }
+    function zoom15(){
+        map.zoomTo(15,{duration: 2000,
+            offset: [100, 50]});
+    }
+    function zoom20(){
+        map.zoomTo(20,{duration: 2000,
+            offset: [100, 50]});
+    }
+    function zoomDef(){
+        map.zoomTo(11,{duration: 2000,
+            offset: [100, 50]});
+    }
+    document.querySelector("#five").addEventListener('click',zoom5);
+    document.querySelector("#fifteen").addEventListener('click',zoom15);
+    document.querySelector("#twenty").addEventListener('click',zoom20);
+    document.querySelector("#default").addEventListener('click',zoomDef);
 </script>
 </body>
 </html>
