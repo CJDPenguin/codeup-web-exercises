@@ -7,7 +7,7 @@
 </head>
 <body>
 <div id='map' style='width: 80vw; height: 80vw; margin: auto'></div>
-<form> Zoom Level:
+<form style="width: 80vw; margin: auto"> Zoom Level:
     <label for="five">5x</label>
     <input type="radio" name="zoom" id="five" value="5">
     <label for="fifteen">15x</label>
@@ -16,19 +16,15 @@
     <input type="radio" name="zoom" id="twenty" value="20">
     <label for="default">Default</label>
     <input type="radio" name="zoom" id="default" value="11" checked="checked">
+    <label for="search">Search:</label>
+    <input type="text" id="search" placeholder="Search for a place here">
 </form>
+<button id="clearMarkers">Remove Markers</button>
 <script src="js/keys.js"></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js'></script>
 <script src="js/geocode-utils.js"></script>
 <script>
-    mapboxgl.accessToken = MAPBOX_KEY;
-    const map = new mapboxgl.Map({
-        container: 'map', // container ID
-        style: 'mapbox://styles/mapbox/streets-v11', // style URL
-        center: [-77.05, 38.86], // starting position [lng, lat]
-        zoom: 11// starting zoom
-    });
-    const PLACES = [
+    const RESTAURANTS = [
         {
             name: "Zento",
             location: {
@@ -55,15 +51,41 @@
             best: "Tacos al Pastor"
         }
     ]
+    mapboxgl.accessToken = MAPBOX_KEY;
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/streets-v11', // style URL
+        center: [-77.05, 38.86], // starting position [lng, lat]
+        zoom: 11// starting zoom
+    });
 
-    PLACES.forEach(function(place){
-        new mapboxgl.Marker().setLngLat(
+    RESTAURANTS.forEach(function(place){
+        const PLACE = new mapboxgl.Marker().setLngLat(
             [place.location.lng, place.location.lat]
         ).setPopup(
-            new mapboxgl.Popup({offset: 25}).setHTML("<h3>" + place.name + "</h3><p>" + place.cuisine + "<br>" + place.best + "</p>")
+            new mapboxgl.Popup({offset: 25}).setHTML("<h3>" + place.name + "</h3><p><strong>" + place.cuisine + "</strong><br>" + place.best + "</p>")
         )
         .addTo(map);
+        document.querySelector('#clearMarkers').addEventListener('click', function(){
+            PLACE.remove();
+        })
     })
+
+    document.addEventListener('keypress', function(e){
+        let searchString = document.querySelector('#search').value;
+        if(e.key === 'Enter'){
+            e.preventDefault();
+            geocode(searchString, MAPBOX_KEY).then(function (data){
+                console.log(data);
+                const PLACE = new mapboxgl.Marker().setLngLat(data).addTo(map);
+                map.flyTo({center: data, essential: true});
+                document.querySelector('#search').value = '';
+                document.querySelector('#clearMarkers').addEventListener('click', function(){
+                    PLACE.remove();
+                })
+            })
+        }
+    });
 
     function zoom5(){
         map.zoomTo(5,{duration: 2000,
