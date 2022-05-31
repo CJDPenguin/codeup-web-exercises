@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #191919;
+    border: 20px solid RGB(30, 30, 30, 100);
+}
+
+section {
+    background: #878787;
+    border: 10px solid #333;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5vw 2vw;
+}
+
+div {
+    background: #4E8F63;
+    border: 2px solid #333;
+    border-radius: 2px;
+    padding: 2px;
+    margin: 2px;
+    text-align: center;
+}
+
+#location {
+    justify-content: space-around;
+}
+
+#forecasts > div {
+    display: flex;
+}
+
+#forecasts div {
+    width: 100%;
+    text-align: center;
+}
+
+#map {
+    width: 100%;
+}
