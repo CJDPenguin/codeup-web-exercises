@@ -2,12 +2,7 @@
 let DATA = {};// establish variable for data from API request
 
 mapboxgl.accessToken = MAPBOX_KEY;
-const map = new mapboxgl.Map({
-    container: 'map', // container ID
-    style: 'mapbox://styles/mapbox/streets-v11', // style URL
-    center: [-74.5, 40], // starting position [lng, lat]
-    zoom: 9 // starting zoom
-});
+
 //API call
 $.get("https://api.openweathermap.org/data/2.5/onecall?lat=29.424349&lon=-98.491142&units=imperial&appid=" + OPEN_WEATHER_KEY).done(function (data) {
 
@@ -61,7 +56,6 @@ $.get("https://api.openweathermap.org/data/2.5/onecall?lat=29.424349&lon=-98.491
     }
     //Adds location to the right spot
     reverseGeocode(location, MAPBOX_KEY).then((place) => {
-        console.log(place.split(","))
         let where = place.split(",")
         $('#city').append(where[0] + "<br>" + where[2]);
     });
@@ -114,13 +108,44 @@ $.get("https://api.openweathermap.org/data/2.5/onecall?lat=29.424349&lon=-98.491
         return html;
     }
 
-    $('#curCond').append(wxIcon(data.current.weather[0].icon));
-    $('#pos').append("LAT: " + data.lat + "<br>LON: " + data.lon);
-    $('#dtg').append(dateTime(data.current.dt))
-    $('#curTempFeel').append(data.current.feels_like + "&deg;F")
-    $('#humidity').append(Math.round(data.current.humidity) + '%');
-    $('#today').append(forecastHTML(data.daily[0]));
-    $('#dayOne').append(forecastHTML(data.daily[1]));
-    $('#dayTwo').append(forecastHTML(data.daily[2]));
-    $('#dayThree').append(forecastHTML(data.daily[3]));
+    function update() {
+        $('#curCond').append(wxIcon(data.current.weather[0].icon));
+        $('#pos').append("LAT: " + data.lat + "<br>LON: " + data.lon);
+        $('#dtg').append(dateTime(data.current.dt))
+        $('#curTempFeel').append(data.current.feels_like + "&deg;F")
+        $('#humidity').append(Math.round(data.current.humidity) + '%');
+        $('#today').append(forecastHTML(data.daily[0]));
+        $('#dayOne').append(forecastHTML(data.daily[1]));
+        $('#dayTwo').append(forecastHTML(data.daily[2]));
+        $('#dayThree').append(forecastHTML(data.daily[3]));
+    }
+
+    update();
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/cjdpenguin/cl3p0cdm4004n14myrccdh02i', // style URL
+        center: [-98.49, 29.42], // starting position [lng, lat]
+        zoom: 5, // starting zoom
+        attributionControl: true
+    });
+
+    const marker = new mapboxgl.Marker({color: 'black', draggable: true})
+        .setLngLat([-98.49, 29.42])
+        .addTo(map);
+
+    function onDrag() {
+        let lnglat = marker.getLngLat();
+        console.log(lnglat);
+        map.easeTo({center: lnglat});
+        location = lnglat;
+        reverseGeocode(location, MAPBOX_KEY).then((place) => {
+            let where = place.split(",")
+            $('#city').empty().append(where[0] + "<br>" + where[2]);
+            $('#pos').empty().append("LAT: " + (location.lat).toFixed(4) + "<br>LON: " + (location.lng).toFixed(4));
+        });
+    }
+
+    marker.on('dragend', onDrag);
+
 })
+

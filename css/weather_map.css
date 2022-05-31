@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: 'Syne Mono', monospace;
 }
 
 body {
@@ -18,7 +19,7 @@ section {
 
 div {
     background: #4E8F63;
-    border: 2px solid #333;
+    border: 2px inset #333;
     border-radius: 2px;
     padding: 2px;
     margin: 2px;
@@ -27,6 +28,7 @@ div {
 
 #location {
     justify-content: space-around;
+    flex-wrap: nowrap;
 }
 
 #forecasts > div {
@@ -38,6 +40,81 @@ div {
     text-align: center;
 }
 
+#conditions {
+    display: grid;
+    grid-template-columns: 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr;
+    grid-template-rows: 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr;
+}
+
+#conditions > div {
+    min-width: 0;
+    min-height: 0;
+}
+
 #map {
-    width: 100%;
+    border: 5px inset #333;
+    border-radius: 50%;
+    grid-column-start: 3;
+    grid-row-start: 3;
+    grid-column-end: 11;
+    grid-row-end: 11
+}
+
+.mapboxgl-control-container * {
+    background: transparent;
+    border: none;
+}
+
+.mapboxgl-marker {
+    background: transparent;
+    border: none;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container div {
+    background: transparent;
+    border: none;
+}
+
+#alertsContainer {
+    background: #BC5050;
+    grid-column-start: 2;
+    grid-row-start: 2;
+    grid-column-end: 4;
+    grid-row-end: 4;
+    border-radius: 50%;
+    font-size: 2em;
+    color: #fff;
+}
+
+#humContainer {
+    grid-column-start: 10;
+    grid-row-start: 2;
+    grid-column-end: 12;
+    grid-row-end: 4;
+    border-radius: 50%;
+    font-size: 1.75em;
+}
+
+#tempContainer {
+    grid-column-start: 2;
+    grid-row-start: 9;
+    grid-column-end: 5;
+    grid-row-end: 12;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+#condContainer {
+    grid-column-start: 9;
+    grid-row-start: 9;
+    grid-column-end: 12;
+    grid-row-end: 12;
+    border-radius: 50%;
+    font-size: 3em;
 }
