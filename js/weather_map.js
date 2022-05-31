@@ -2,7 +2,7 @@
 let DATA = {};// establish variable for data from API request
 
 mapboxgl.accessToken = MAPBOX_KEY;
-
+//async 08
 //API call
 $.get("https://api.openweathermap.org/data/2.5/onecall?lat=29.424349&lon=-98.491142&units=imperial&appid=" + OPEN_WEATHER_KEY).done(function (data) {
 
