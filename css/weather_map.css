@@ -10,7 +10,7 @@ body {
 
 section {
     background: #878787;
-    border: 10px solid #333;
+    border: 10px inset #333;
     border-radius: 10px;
     display: flex;
     flex-wrap: wrap;
@@ -24,6 +24,41 @@ div {
     padding: 2px;
     margin: 2px;
     text-align: center;
+}
+
+textarea {
+    background: #4E8F63;
+    border: 2px inset #333;
+    border-radius: 2px;
+    padding: 2px;
+    margin: 2px;
+    text-align: center;
+    resize: none;
+    line-height: 1em;
+}
+
+.alert {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    position: relative;
+    height: 59vw;
+    width: 59vw;
+    z-index: 4;
+    transform: translateX(30vw) translateY(-9vw);
+    font-size: small;
+    border: 5px inset #333;
+    border-radius: 25%;
+    background: #4E8F63;
+    overflow: auto;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+#alerts {
+    height: 8vw
 }
 
 #location {
@@ -42,8 +77,9 @@ div {
 
 #conditions {
     display: grid;
-    grid-template-columns: 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr;
-    grid-template-rows: 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr 8.33fr;
+    grid-template-columns: repeat(24, 1fr);
+    grid-template-rows: repeat(24, 1fr);
+    height: 85vw
 }
 
 #conditions > div {
@@ -53,11 +89,11 @@ div {
 
 #map {
     border: 5px inset #333;
-    border-radius: 50%;
-    grid-column-start: 3;
-    grid-row-start: 3;
-    grid-column-end: 11;
-    grid-row-end: 11
+    border-radius: 25%;
+    grid-column-start: 4;
+    grid-row-start: 4;
+    grid-column-end: 22;
+    grid-row-end: 22
 }
 
 .mapboxgl-control-container * {
@@ -85,36 +121,38 @@ div {
     background: #BC5050;
     grid-column-start: 2;
     grid-row-start: 2;
-    grid-column-end: 4;
-    grid-row-end: 4;
+    grid-column-end: 6;
+    grid-row-end: 6;
     border-radius: 50%;
     font-size: 2em;
     color: #fff;
 }
 
 #humContainer {
-    grid-column-start: 10;
+    grid-column-start: 20;
     grid-row-start: 2;
-    grid-column-end: 12;
-    grid-row-end: 4;
+    grid-column-end: 24;
+    grid-row-end: 6;
     border-radius: 50%;
     font-size: 1.75em;
 }
 
 #tempContainer {
     grid-column-start: 2;
-    grid-row-start: 9;
-    grid-column-end: 5;
-    grid-row-end: 12;
+    grid-row-start: 19;
+    grid-column-end: 7;
+    grid-row-end: 24;
     border-radius: 50%;
     font-weight: bold;
+    z-index: 5;
 }
 
 #condContainer {
-    grid-column-start: 9;
-    grid-row-start: 9;
-    grid-column-end: 12;
-    grid-row-end: 12;
+    grid-column-start: 19;
+    grid-row-start: 19;
+    grid-column-end: 24;
+    grid-row-end: 24;
     border-radius: 50%;
     font-size: 3em;
+    z-index: 5;
 }

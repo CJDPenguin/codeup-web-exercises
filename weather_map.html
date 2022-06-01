@@ -13,13 +13,14 @@
     <link rel="stylesheet" href="css/weather_map.css">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
-    <title>Cyber Weather</title>
+    <title>Weather Display</title>
 </head>
 <body>
 
 <main id="viewport">
     <section id="location">
-        <div id="city"></div>
+        <label for="city"></label>
+        <textarea id="city" rows="2" cols="15" wrap="hard"></textarea>
         <div id="dtg"></div>
         <div id="pos"></div>
     </section>
@@ -36,6 +37,7 @@
         <div id="alertsContainer" class="container">
             <div id="alerts">
                 <ion-icon name="warning-sharp"></ion-icon>
+                <section id="alertDisplay" class="alert hidden"></section>
             </div>
         </div>
         <div id="hiLo" style="display: none"></div>
@@ -53,8 +55,8 @@
         <div id="dayOne"></div>
         <div id="dayTwo"></div>
         <div id="dayThree"></div>
-        <div id="dayFour" style="display: none"></div>
-        <div id="dayFive" style="display: none"></div>
+        <div id="dayFour"></div>
+        <div id="dayFive"></div>
     </section>
 </main>
 
@@ -63,6 +65,7 @@
 <script src="js/geocode-utils.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="js/weather_map.js"></script>
+<!--<script src="js/weather_map.js"></script>-->
+<script src="js/better_map_js.js"></script>
 </body>
 </html>
