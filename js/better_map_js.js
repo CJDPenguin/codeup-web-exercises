@@ -107,6 +107,7 @@ $(document).ready(function () {
                 let where = place.split(",")
                 $('#city').val(where[0] + "," + where[2]);
             });
+            console.log(data);
             $('#curCond').empty().append(wxIcon(data.current.weather[0].icon));
             $('#pos').empty().append("LAT:" + data.lat.toFixed(3) + "<br>LON:" + data.lon.toFixed(3));
             $('#dtg').empty().append(dateTime(data.current.dt))
@@ -118,6 +119,9 @@ $(document).ready(function () {
             $('#dayThree').empty().append(forecastHTML(data.daily[3]));
             $('#dayFour').empty().append(forecastHTML(data.daily[4]));
             $('#dayFive').empty().append(forecastHTML(data.daily[5]));
+            data.alerts.forEach(alert => {
+                $('#alertDisplay').append(alertHTML(alert));
+            })
         })
 
     }
