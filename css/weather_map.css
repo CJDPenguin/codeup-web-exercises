@@ -51,10 +51,32 @@ textarea {
     border-radius: 25%;
     background: #4E8F63;
     overflow: auto;
+    padding: 5vw 0
 }
 
 .hidden {
     visibility: hidden;
+}
+
+.mapboxgl-marker {
+    background: transparent;
+    border: none;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container div {
+    background: transparent;
+    border: none;
+}
+
+.mapboxgl-control-container * {
+    background: transparent;
+    border: none;
 }
 
 #alerts {
@@ -79,7 +101,6 @@ textarea {
     display: grid;
     grid-template-columns: repeat(24, 1fr);
     grid-template-rows: repeat(24, 1fr);
-    height: 85vw
 }
 
 #conditions > div {
@@ -94,27 +115,6 @@ textarea {
     grid-row-start: 4;
     grid-column-end: 22;
     grid-row-end: 22
-}
-
-.mapboxgl-control-container * {
-    background: transparent;
-    border: none;
-}
-
-.mapboxgl-marker {
-    background: transparent;
-    border: none;
-}
-
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.container div {
-    background: transparent;
-    border: none;
 }
 
 #alertsContainer {
@@ -155,4 +155,16 @@ textarea {
     border-radius: 50%;
     font-size: 3em;
     z-index: 5;
+}
+
+@media screen and (min-width: 1024px) {
+    #viewport {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(12, 1fr);
+    }
+
+    section {
+        display: initial;
+    }
 }
