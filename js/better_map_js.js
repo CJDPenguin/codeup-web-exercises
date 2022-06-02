@@ -130,7 +130,7 @@ $(document).ready(function () {
         container: 'map', // container ID
         style: 'mapbox://styles/cjdpenguin/cl3p0cdm4004n14myrccdh02i', // style URL
         center: [-98.49, 29.42], // starting position [lng, lat]
-        zoom: 5, // starting zoom
+        zoom: 9, // starting zoom
         attributionControl: true
     });
 
