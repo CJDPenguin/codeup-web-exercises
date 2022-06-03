@@ -49,6 +49,10 @@ let totalXP = users.reduce((total, user) => {
 }, 0)
 console.log(totalXP);
 
+let averageXP = totalXP / users.length;
+
+console.log(averageXP);
+
 let longestEmail = users.reduce((longEmail, user) => {
     return longEmail.length > user.email.length ? longEmail : user.email;
 }, '');
