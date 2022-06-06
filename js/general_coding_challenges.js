@@ -34,10 +34,10 @@
     // Whether to use upper case, lower case, or both
 
     let userPref = {
-        length: 12,
-        special: 2,
-        digits: 2,
-        case: 'both'
+        length: document.querySelector("#length").value,
+        special: document.querySelector("#special").value,
+        digits: document.querySelector("#digits").value,
+        case: document.querySelector("#case").value
     }
 
     let randomLetter = () => {
@@ -125,10 +125,6 @@
 
     let randomDigit = () => Math.floor(Math.random() * 9)
 
-    console.log((/[a-z]/).test(randomDigit()));
-    console.log((/[a-z]/).test(randomLetter()));
-    console.log((/[a-z]/).test(randomSpecial()));
-
     function generatePassword(preferences) {
         let pw = ''
 
@@ -200,6 +196,16 @@
         return pw;
     }
 
-    console.log(generatePassword(userPref));
+    document.querySelector("#pwGenerator").addEventListener('click', () => {
+        let userPref = {
+            length: document.querySelector("#length").value,
+            special: document.querySelector("#special").value,
+            digits: document.querySelector("#digits").value,
+            case: document.querySelector("#case").value
+        }
+        let password = generatePassword(userPref);
+
+        alert(`Your password is ${password}`);
+    })
 
 })()
